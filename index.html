@@ -217,7 +217,7 @@ g.addEventListener("click",function(e){var f=e.target.closest(".tile");if(!f)ret
 function cl(){lb.classList.remove("on")}
 lb.addEventListener("click",function(e){if(e.target.tagName!="svg"&&e.target.tagName!="P")cl()});
 addEventListener("keydown",function(e){if(e.key=="Escape")cl()});
-var P=["Nusa Studio","Kopi Rumah","PrintLab","Arsitek ID","Toko Maju","Gudang Kita","Pixel Hub","Brand Co"],SH=['<circle cx="12" cy="12" r="10"/>','<rect x="3" y="3" width="18" height="18" rx="4"/>','<path d="M12 2l10 19H2z"/>','<path d="M12 2l9 5v10l-9 5-9-5V7z"/>'];
+var P=["Beefour Creative Agency","WESTART Shopping","CitraSR12","Universal Mart","Rumah Kebangsaan Pancasila","Rumah Tanah Liat Citra","Arinda Food","Lifebook Academy"],SH=['<circle cx="12" cy="12" r="10"/>','<rect x="3" y="3" width="18" height="18" rx="4"/>','<path d="M12 2l10 19H2z"/>','<path d="M12 2l9 5v10l-9 5-9-5V7z"/>'];
 var ph=P.map(function(n,i){return '<div class="pl"><svg viewBox="0 0 24 24">'+SH[i%4]+'</svg>'+n+'</div>'}).join("");
 document.getElementById("mt").innerHTML=ph+ph;
 var ts=document.getElementById("toast"),tm;
