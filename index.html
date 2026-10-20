@@ -84,12 +84,12 @@ footer{padding:28px 0 40px;text-align:center;color:var(--muted);font-size:13px}
 .cd button{align-self:flex-start;margin-top:8px;cursor:pointer;font:500 13px Manrope,sans-serif;color:var(--p3);background:transparent;border:1px solid var(--line);border-radius:999px;padding:5px 14px}
 .cd button:hover{border-color:var(--p2)}
 .mq{overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
-.mt{display:flex;gap:16px;width:max-content;animation:mq 75s linear infinite}.mq:hover .mt{animation-play-state:paused}
+.mt{display:flex;gap:16px;width:max-content;animation:mq 62s linear infinite}.mq:hover .mt{animation-play-state:paused}
 @keyframes mq{to{transform:translateX(-50%)}}
 .pl{display:flex;align-items:center;gap:12px;padding:14px 24px;border:1px solid var(--line);border-radius:14px;background:var(--surface);color:var(--muted);font-weight:700;white-space:nowrap}
 .pl svg{width:30px;height:30px;fill:var(--p1);opacity:.85}.pl:hover{color:var(--text);border-color:var(--p2)}
-.pl.lg{width:220px;height:110px;padding:16px 22px;justify-content:center;background:var(--surface);border-color:var(--line);flex:none}.pl.lg img{max-width:100%;max-height:100%;object-fit:contain;display:block}.pl.lg:hover{border-color:var(--p2);box-shadow:0 0 0 1px var(--p1),0 0 22px rgba(124,58,237,.35)}
-@media (max-width:520px){.pl.lg{width:160px;height:80px;padding:12px 16px}}
+.pl.lg{width:180px;height:64px;padding:8px 14px;justify-content:center;background:var(--surface);border-color:var(--line);flex:none}.pl.lg img{max-width:100%;max-height:100%;object-fit:contain;display:block}.pl.lg:hover{border-color:var(--p2);box-shadow:0 0 0 1px var(--p1),0 0 18px rgba(124,58,237,.35)}
+@media (max-width:520px){.pl.lg{width:148px;height:54px;padding:7px 12px}}
 .lb{position:fixed;inset:0;z-index:60;background:rgba(5,3,10,.92);display:none;place-items:center;padding:24px}.lb.on{display:grid}
 .lb div{max-width:min(560px,100%);text-align:center}.lb img,.lb svg{width:100%;max-height:70vh;object-fit:contain;border-radius:16px;border:1px solid var(--line)}.lb p{margin:14px 0 0}.lb button{position:absolute;top:calc(env(safe-area-inset-top,0px) + 16px);right:18px;font-size:30px;line-height:1;color:var(--text);background:none;border:0;cursor:pointer}
 .toast{position:fixed;left:50%;bottom:calc(env(safe-area-inset-bottom,0px) + 24px);translate:-50% 20px;opacity:0;background:var(--p1);padding:10px 20px;border-radius:999px;font-size:14px;z-index:70;transition:.25s;pointer-events:none}.toast.on{opacity:1;translate:-50% 0}
@@ -191,11 +191,11 @@ var CFG={
   // {title:"",sub:"",src:"videos/a.mp4 atau link YouTube",poster:"images/cover.jpg",vertical:false}
  ],
  partners:[
-  {name:"Beefour Creative Agency",logo:"logo-beefour.png"},
-  {name:"Citra SR12",logo:"logo-citra-sr12.png"},
-  {name:"Westart Shopping",logo:"logo-westart.png"},
-  {name:"Rumah Tanah Liat Citra",logo:"logo-rumah-tanah-liat-citra.png"},
-  {name:"Rumah Kebangsaan Pancasila",logo:"logo-rumah-kebangsaan-pancasila.png"},
+  {name:"Beefour Creative Agency",logo:"partner-beefour.png"},
+  {name:"Citra SR12",logo:"partner-citra-sr12.png"},
+  {name:"Westart Shopping",logo:"partner-westart.png"},
+  {name:"Rumah Tanah Liat Citra",logo:"partner-rumah-tanah-liat-citra.png"},
+  {name:"Rumah Kebangsaan Pancasila",logo:"partner-rumah-kebangsaan-pancasila.png"},
   // {name:"Nama",logo:"images/partner1.png"}
  ]
 };
