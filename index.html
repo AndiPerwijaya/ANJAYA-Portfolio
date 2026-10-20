@@ -15,15 +15,15 @@ html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px)
 body{margin:0;background:var(--bg);color:var(--text);font:400 16px/1.7 Manrope,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
 :focus-visible{outline:2px solid var(--p2);outline-offset:3px}
-.wrap{max-width:1680px;margin:0 auto;padding:0 clamp(22px,5vw,84px)}
+.wrap{max-width:1160px;margin:0 auto;padding:0 22px}
 header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(10,7,16,.82);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
 header .wrap{display:flex;justify-content:space-between;align-items:center;height:60px}
 .logo{font-family:Fraunces,serif;font-weight:600;letter-spacing:.14em}
 nav{display:flex;gap:26px;font-size:16px;color:var(--muted)}
 nav a:hover{color:var(--p3)}
-.hero{position:relative;overflow:hidden;padding:clamp(84px,9vw,130px) 0 clamp(72px,8vw,110px)}
+.hero{position:relative;overflow:hidden;padding:84px 0 72px}
 .hero::before{content:"";position:absolute;width:560px;height:560px;right:-160px;top:-140px;background:radial-gradient(circle,rgba(124,58,237,.55),transparent 66%);filter:blur(10px);pointer-events:none}
-.hero h1{position:relative;font-family:Fraunces,serif;font-weight:800;font-variation-settings:"opsz" 144;font-size:clamp(56px,13vw,230px);line-height:.95;letter-spacing:.02em;margin:0;background:linear-gradient(180deg,#f5f0ff 20%,var(--p2) 70%,var(--p1));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero h1{position:relative;font-family:Fraunces,serif;font-weight:800;font-variation-settings:"opsz" 144;font-size:clamp(56px,13vw,160px);line-height:.95;letter-spacing:.02em;margin:0;background:linear-gradient(180deg,#f5f0ff 20%,var(--p2) 70%,var(--p1));-webkit-background-clip:text;background-clip:text;color:transparent}
 .hero p{position:relative;max-width:min(520px,58vw);color:var(--muted);margin:26px 0 30px;font-size:18px}
 .btns{display:flex;gap:12px;flex-wrap:wrap;position:relative}
 .btn{padding:12px 24px;border-radius:999px;border:1px solid var(--p1);font-weight:700;font-size:15px}
@@ -32,7 +32,7 @@ nav a:hover{color:var(--p3)}
 section{padding:72px 0;border-top:1px solid var(--line)}
 h2{font-family:Fraunces,serif;font-weight:400;font-size:clamp(30px,5vw,46px);line-height:1.15;margin:0 0 14px}
 .lead{color:var(--muted);max-width:640px;margin:0 0 34px}
-.about{display:grid;grid-template-columns:clamp(300px,24vw,400px) 1fr;gap:clamp(32px,4vw,72px);align-items:stretch}.about .portrait{aspect-ratio:auto;min-height:260px;position:relative}.about .stats{margin:26px 0 0}
+.about{display:grid;grid-template-columns:300px 1fr;gap:48px;align-items:stretch}.about .portrait{aspect-ratio:auto;min-height:260px;position:relative}.about .stats{margin:26px 0 0}
 .portrait{aspect-ratio:4/5;border-radius:20px;border:1px solid var(--line);background:linear-gradient(160deg,#2a1260,#0f0a1a 70%);display:grid;place-items:center;color:var(--p3);font-size:14px;text-align:center;padding:20px}
 .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:26px 0}
 .stat{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px}
@@ -127,7 +127,7 @@ header .wrap{transition:height .25s}header.sc .wrap{height:52px}header.sc{box-sh
 
 .xh{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:28px}
 .xcat{display:flex;gap:10px;font-size:14px;color:var(--muted)}.xcat i{font-style:normal;opacity:.6}.xcat a:hover{color:var(--p3)}
-.xgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.xgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
 .xc{display:flex;gap:18px;align-items:flex-start;padding:22px;background:linear-gradient(160deg,rgba(32,22,52,.7),rgba(15,10,26,.7))}
 .ic{flex:none;width:48px;height:48px;border-radius:50%;border:1px solid var(--p1);background:rgba(124,58,237,.12);box-shadow:0 0 16px rgba(124,58,237,.3);display:grid;place-items:center}
 .ic svg{width:22px;height:22px;fill:none;stroke:var(--p2);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
@@ -145,8 +145,6 @@ header .wrap{transition:height .25s}header.sc .wrap{height:52px}header.sc{box-sh
 .steps{grid-template-columns:1fr;gap:20px}.step{display:grid;grid-template-columns:48px 1fr;column-gap:16px}.step .ic{grid-row:1/4;margin:0}.step:not(:last-child)::after{top:56px;left:24px;right:auto;width:1px;height:calc(100% - 36px)}.step small{align-self:end}
 }
 
-@media (min-width:1200px){.hero p{max-width:min(640px,50vw);font-size:19px}.lead{max-width:760px}.about .lead{max-width:900px}}
-@media (min-width:1500px){.grid{columns:4}body{font-size:17px}}
 
 .tile figcaption{opacity:0;transition:opacity .25s}.tile:hover figcaption,.tile:focus-visible figcaption{opacity:1}
 @media (hover:none){.tile figcaption{display:none}}
@@ -178,7 +176,7 @@ header .wrap{transition:height .25s}header.sc .wrap{height:52px}header.sc{box-sh
 <div class="stats">
 <div class="stat"><b>3+</b><span>Years of experience</span></div>
 <div class="stat"><b>100+</b><span>Projects completed</span></div>
-<div class="stat"><b>35+</b><span>Clients &amp; brands</span></div>
+<div class="stat"><b>35+</b><span>Clients</span></div>
 </div>
 
 </div></div>
@@ -190,11 +188,9 @@ header .wrap{transition:height .25s}header.sc .wrap{height:52px}header.sc{box-sh
 <div class="xcat"><a href="#works">Design</a><i>/</i><a href="#works">3D</a><i>/</i><a href="#video">Video</a><i>/</i><a href="#ops">E-commerce</a></div></div>
 <div class="xgrid">
 <div class="skill xc"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 20l1-4L16 5l3 3L8 19l-4 1z"/><path d="M14 7l3 3"/></svg></div><div><h3>Graphic Design</h3><p>Product design, branding, campaign, packaging, and promotional materials.</p><div class="chips"><span class="chip">Branding</span><span class="chip">Packaging</span><span class="chip">Social Media</span></div></div></div>
-<div class="skill xc"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 7.5L12 3l9 4.5v9L12 21l-9-4.5v-9z"/><path d="M3 7.5L12 12l9-4.5M12 12v9"/></svg></div><div><h3>3D Modeling</h3><p>Models for 3D printing, assets, and product visualization.</p><div class="chips"><span class="chip">Blender</span><span class="chip">3D Product</span><span class="chip">Environment</span></div></div></div>
-<div class="skill xc"><div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M10 9.5v5l4.5-2.5z"/></svg></div><div><h3>Video Editing</h3><p>Short videos, product reels, and social media content.</p><div class="chips"><span class="chip">CapCut</span><span class="chip">Adobe Premiere</span><span class="chip">Motion</span></div></div></div>
-<div class="skill xc"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 10v4h3l7 4V6L6 10H3z"/><path d="M16.5 9a4 4 0 010 6"/><path d="M19 6.5a8 8 0 010 11"/></svg></div><div><h3>Brand Management</h3><p>Managing visual identity, marketing, stock, and e-commerce operation.</p><div class="chips"><span class="chip">Brand Identity</span><span class="chip">Product Catalog</span><span class="chip">Marketplace</span></div></div></div>
-<div class="skill xc"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 9l1.5-5h13L20 9"/><path d="M4 9a2.5 2.5 0 005 0 2.5 2.5 0 006 0 2.5 2.5 0 005 0"/><path d="M5 12v8h14v-8"/><path d="M10 20v-5h4v5"/></svg></div><div><h3>E-commerce &amp; Ads</h3><p>Marketplace management, ad setup, content design, and campaign optimization.</p><div class="chips"><span class="chip">Shopee</span><span class="chip">TikTok Shop</span><span class="chip">Meta Ads</span></div></div></div>
-<div class="skill xc"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.3 5.3l2.1 2.1M16.6 16.6l2.1 2.1M18.7 5.3l-2.1 2.1M7.4 16.6l-2.1 2.1"/></svg></div><div><h3>Brand Operations</h3><p>Inventory, purchasing, and operational support for daily business needs.</p><div class="chips"><span class="chip">Stock Control</span><span class="chip">Purchasing</span><span class="chip">Logistics</span></div></div></div>
+<div class="skill xc"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 7.5L12 3l9 4.5v9L12 21l-9-4.5v-9z"/><path d="M3 7.5L12 12l9-4.5M12 12v9"/></svg></div><div><h3>3D Modeling</h3><p>Clean models for 3D printing and digital assets, built in Blender.</p><div class="chips"><span class="chip">Blender</span><span class="chip">3D Printing</span><span class="chip">Character</span></div></div></div>
+<div class="skill xc"><div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M10 9.5v5l4.5-2.5z"/></svg></div><div><h3>Video Editing</h3><p>Short videos, product reels, and social media content.</p><div class="chips"><span class="chip">CapCut</span><span class="chip">Adobe Premiere</span></div></div></div>
+<div class="skill xc"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 9l1.5-5h13L20 9"/><path d="M4 9a2.5 2.5 0 005 0 2.5 2.5 0 006 0 2.5 2.5 0 005 0"/><path d="M5 12v8h14v-8"/><path d="M10 20v-5h4v5"/></svg></div><div><h3>E-commerce &amp; Brand</h3><p>Marketplace management, ads, and brand identity, backed by daily operations from catalog to stock.</p><div class="chips"><span class="chip">Shopee</span><span class="chip">TikTok Shop</span><span class="chip">Meta Ads</span><span class="chip">Stock Control</span></div></div></div>
 </div>
 </div></section>
 
@@ -221,7 +217,6 @@ header .wrap{transition:height .25s}header.sc .wrap{height:52px}header.sc{box-sh
 <div class="ops">
 <div class="skill"><h3>Online store</h3><p>Listing setup, photos, pricing, and promos across every sales channel.</p></div>
 <div class="skill"><h3>Stock &amp; warehouse</h3><p>Stock records, purchasing, and regular stocktakes.</p></div>
-<div class="skill"><h3>Daily finance</h3><p>Invoicing, purchasing, and order recaps for clear cash flow.</p></div>
 <div class="skill"><h3>Paid ads</h3><p>Meta Ads campaigns from audience targeting to results review.</p></div>
 </div>
 </div></section>
@@ -242,7 +237,7 @@ header .wrap{transition:height .25s}header.sc .wrap{height:52px}header.sc{box-sh
 <p>Tell me what you need, and I'll get back to you as soon as possible.</p>
 <div class="cc"><div class="cd"><span>Phone / WhatsApp</span><a href="https://wa.me/62895340911029" target="_blank" rel="noopener">+62-895-3409-11029</a><a class="mbtn" href="https://wa.me/62895340911029" target="_blank" rel="noopener">Send a Message <span aria-hidden="true">&rarr;</span></a></div><div class="cd"><span>Gmail</span><a href="mailto:mr.andikaws@gmail.com">mr.andikaws@gmail.com</a><a class="mbtn" href="mailto:mr.andikaws@gmail.com">Send a Message <span aria-hidden="true">&rarr;</span></a></div></div>
 </div></div></section>
-<section id="partner" style="padding-top:24px"><div class="wrap"><h2>Partnership</h2><p class="lead">Brands and clients I've worked with.</p></div><div class="mq"><div class="mt" id="mt"></div></div></section>
+<section id="partner" style="padding-top:24px"><div class="wrap"><h2>Partnership</h2><p class="lead">Clients I've worked with.</p></div><div class="mq"><div class="mt" id="mt"></div></div></section>
 </main>
 <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Work preview"><button aria-label="Close" id="lbx">&times;</button><button class="lbn l" id="lbp" aria-label="Previous">&lsaquo;</button><button class="lbn r" id="lbnx" aria-label="Next">&rsaquo;</button><div id="lbc"></div></div>
 <button class="top" id="totop" aria-label="Back to top"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="21"/></svg><b>&uarr;</b></button>
