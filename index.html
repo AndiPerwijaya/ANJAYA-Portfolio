@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -19,12 +19,12 @@ a{color:inherit;text-decoration:none}
 header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(10,7,16,.82);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
 header .wrap{display:flex;justify-content:space-between;align-items:center;height:60px}
 .logo{font-family:Fraunces,serif;font-weight:600;letter-spacing:.14em}
-nav{display:flex;gap:22px;font-size:14px;color:var(--muted)}
+nav{display:flex;gap:26px;font-size:16px;color:var(--muted)}
 nav a:hover{color:var(--p3)}
 .hero{position:relative;overflow:hidden;padding:84px 0 72px}
 .hero::before{content:"";position:absolute;width:560px;height:560px;right:-160px;top:-140px;background:radial-gradient(circle,rgba(124,58,237,.55),transparent 66%);filter:blur(10px);pointer-events:none}
-.hero h1{position:relative;font-family:Fraunces,serif;font-weight:600;font-size:clamp(56px,17vw,190px);line-height:.95;letter-spacing:.02em;margin:0;background:linear-gradient(180deg,#f5f0ff 20%,var(--p2) 70%,var(--p1));-webkit-background-clip:text;background-clip:text;color:transparent}
-.hero p{position:relative;max-width:520px;color:var(--muted);margin:26px 0 30px;font-size:18px}
+.hero h1{position:relative;font-family:Fraunces,serif;font-weight:600;font-size:clamp(56px,13vw,160px);line-height:.95;letter-spacing:.02em;margin:0;background:linear-gradient(180deg,#f5f0ff 20%,var(--p2) 70%,var(--p1));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{position:relative;max-width:min(520px,58vw);color:var(--muted);margin:26px 0 30px;font-size:18px}
 .btns{display:flex;gap:12px;flex-wrap:wrap;position:relative}
 .btn{padding:12px 24px;border-radius:999px;border:1px solid var(--p1);font-weight:700;font-size:15px}
 .btn.fill{background:var(--p1)}
@@ -32,7 +32,7 @@ nav a:hover{color:var(--p3)}
 section{padding:72px 0}
 h2{font-family:Fraunces,serif;font-weight:400;font-size:clamp(30px,5vw,46px);line-height:1.15;margin:0 0 14px}
 .lead{color:var(--muted);max-width:640px;margin:0 0 34px}
-.about{display:grid;grid-template-columns:5fr 7fr;gap:48px;align-items:start}
+.about{display:grid;grid-template-columns:300px 1fr;gap:48px;align-items:stretch}.about .portrait{aspect-ratio:auto;min-height:260px;position:relative}.about .stats{margin:26px 0 0}
 .portrait{aspect-ratio:4/5;border-radius:20px;border:1px solid var(--line);background:linear-gradient(160deg,#2a1260,#0f0a1a 70%);display:grid;place-items:center;color:var(--p3);font-size:14px;text-align:center;padding:20px}
 .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:26px 0}
 .stat{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px}
@@ -49,7 +49,7 @@ h2{font-family:Fraunces,serif;font-weight:400;font-size:clamp(30px,5vw,46px);lin
 .tab[aria-selected="true"]{background:var(--p1);border-color:var(--p1);color:#fff}
 .grid{columns:3;column-gap:16px}
 .tile{break-inside:avoid;margin:0 0 16px;border-radius:16px;overflow:hidden;position:relative;border:1px solid var(--line);cursor:pointer}
-.tile .ph{width:100%;display:block}
+.tile .ph{width:100%;display:block}img.ph{height:auto;min-height:140px;background:var(--surface)}
 .tile figcaption{position:absolute;inset:auto 0 0 0;padding:34px 16px 14px;background:linear-gradient(transparent,rgba(10,7,16,.92));font-size:14px;display:flex;flex-direction:column}
 .tile figcaption small{color:var(--p3);font-size:12.5px}
 .tile:hover .ph{filter:brightness(1.15)}
@@ -89,98 +89,118 @@ footer{padding:28px 0 40px;text-align:center;color:var(--muted);font-size:13px}
 .pl{display:flex;align-items:center;gap:12px;padding:14px 24px;border:1px solid var(--line);border-radius:14px;background:var(--surface);color:var(--muted);font-weight:700;white-space:nowrap}
 .pl svg{width:30px;height:30px;fill:var(--p1);opacity:.85}.pl:hover{color:var(--text);border-color:var(--p2)}
 .lb{position:fixed;inset:0;z-index:60;background:rgba(5,3,10,.92);display:none;place-items:center;padding:24px}.lb.on{display:grid}
-.lb div{max-width:min(560px,100%);text-align:center}.lb svg{width:100%;max-height:70vh;border-radius:16px;border:1px solid var(--line)}.lb p{margin:14px 0 0}.lb button{position:absolute;top:calc(env(safe-area-inset-top,0px) + 16px);right:18px;font-size:30px;line-height:1;color:var(--text);background:none;border:0;cursor:pointer}
+.lb div{max-width:min(560px,100%);text-align:center}.lb img,.lb svg{width:100%;max-height:70vh;object-fit:contain;border-radius:16px;border:1px solid var(--line)}.lb p{margin:14px 0 0}.lb button{position:absolute;top:calc(env(safe-area-inset-top,0px) + 16px);right:18px;font-size:30px;line-height:1;color:var(--text);background:none;border:0;cursor:pointer}
 .toast{position:fixed;left:50%;bottom:calc(env(safe-area-inset-bottom,0px) + 24px);translate:-50% 20px;opacity:0;background:var(--p1);padding:10px 20px;border-radius:999px;font-size:14px;z-index:70;transition:.25s;pointer-events:none}.toast.on{opacity:1;translate:-50% 0}
 @media (max-width:860px){.hero::before{right:-260px}}
 @media (prefers-reduced-motion:reduce){.cube,.box,.mt{animation:none}.mq{overflow-x:auto}}
-@media (max-width:860px){.about{grid-template-columns:1fr}.portrait{max-width:340px}.grid{columns:2}.videos{grid-template-columns:1fr}.vid.short .scr{aspect-ratio:16/9;max-height:none}}
-@media (max-width:520px){nav{gap:14px;font-size:13px}.grid{columns:2;column-gap:10px}.tile{margin-bottom:10px}.stats{grid-template-columns:1fr 1fr 1fr}.stat b{font-size:22px}.hero{padding-top:56px}section{padding:52px 0}}
+@media (max-width:860px){.about{grid-template-columns:1fr}.about .portrait{max-width:340px;aspect-ratio:4/5}.grid{columns:2}.videos{grid-template-columns:1fr}.vid.short .scr{aspect-ratio:16/9;max-height:none}}
+@media (max-width:520px){nav{gap:16px;font-size:15px}.grid{columns:2;column-gap:10px}.tile{margin-bottom:10px}.stats{grid-template-columns:1fr 1fr 1fr}.stat b{font-size:22px}.hero{padding-top:56px}section{padding:52px 0}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media (max-width:700px){.hero{padding-top:112px}.hero h1{font-size:18vw}.hero p{max-width:none}}
 </style>
 </head>
 <body>
 <div class="bar" id="bar"></div><div class="glow" id="glow"></div>
 <header><div class="wrap"><a class="logo" href="#top">ANJAYA</a>
-<nav><a href="#about">About</a><a href="#works">Works</a><a href="#contact">Kontak</a><a href="#partner">Partner</a></nav></div></header>
+<nav><a href="#about">About</a><a href="#works">Works</a><a href="#contact">Contact</a></nav></div></header>
 
 <main id="top">
 <div class="hero" id="hero"><div class="stage" id="stage" aria-hidden="true"></div><div class="wrap">
 <h1>ANJAYA</h1>
-<p>Desainer grafis, 3D modeler, video editor, dan pengelola brand e-commerce. Dari visual sampai stok di gudang, semuanya saya pegang.</p>
-<div class="btns"><a class="btn fill" href="#works">Lihat karya</a><a class="btn" href="#about">Tentang saya</a></div>
+<p>Graphic designer, 3D modeler, video editor, and e-commerce brand manager. From visuals to warehouse stock, I handle it all.</p>
+<div class="btns"><a class="btn fill" href="#works">View works</a><a class="btn" href="#about">About me</a></div>
 </div></div>
 
 <section id="about"><div class="wrap">
 <div class="about">
-<div class="portrait">Taruh foto profil kamu di sini</div>
+<div class="portrait" id="portrait">Add your profile photo here</div>
 <div>
-<h2>Halo, saya Anjaya.</h2>
-<p class="lead" style="margin-bottom:0">Saya membuat desain, model 3D, dan video, lalu ikut memastikan produknya terjual dan stoknya rapi. Karena saya paham sisi kreatif sekaligus operasional, hasil kerja saya enak dilihat dan tetap jalan di lapangan.</p>
+<h2>Hi, I'm Anjaya.</h2>
+<p class="lead" style="margin-bottom:0">I create designs, 3D models, and videos, then help make sure the products sell and the stock stays organized. Because I understand both the creative and operational sides, my work looks good and holds up in the real world.</p>
 <div class="stats">
-<div class="stat"><b>5+</b><span>Tahun pengalaman</span></div>
-<div class="stat"><b>100+</b><span>Proyek selesai</span></div>
-<div class="stat"><b>30+</b><span>Klien &amp; brand</span></div>
+<div class="stat"><b>3+</b><span>Years of experience</span></div>
+<div class="stat"><b>100+</b><span>Projects completed</span></div>
+<div class="stat"><b>35+</b><span>Clients &amp; brands</span></div>
 </div>
-<p style="color:var(--muted);margin:0">Angka di atas masih contoh, silakan ganti dengan data kamu.</p>
+
 </div></div>
 
 <div class="skills">
-<div class="skill"><h3>Desain grafis</h3><p>Desain produk, banner, kampanye, kemasan, dan materi promosi.</p><div class="chips"><span class="chip">Canva</span><span class="chip">Adobe Illustrator</span></div></div>
-<div class="skill"><h3>3D modeling</h3><p>Model untuk 3D printing, asset, dan visualisasi bangunan atau arsitektur.</p><div class="chips"><span class="chip">Blender</span><span class="chip">Bambu Studio</span><span class="chip">SketchUp</span></div></div>
-<div class="skill"><h3>Video editing</h3><p>Video pendek, iklan produk, dan konten media sosial.</p><div class="chips"><span class="chip">CapCut</span><span class="chip">Adobe Premiere</span></div></div>
-<div class="skill"><h3>E-commerce &amp; iklan</h3><p>Kelola toko online, omnichannel, dan Meta Ads sampai performanya terbaca.</p><div class="chips"><span class="chip">Meta Ads</span><span class="chip">Marketplace</span><span class="chip">Omnichannel</span></div></div>
-<div class="skill"><h3>Operasional brand</h3><p>Invoicing, purchasing, belanja stok, atur stok, dan stock opname.</p><div class="chips"><span class="chip">Invoicing</span><span class="chip">Purchasing</span><span class="chip">Stock opname</span></div></div>
-<div class="skill"><h3>Brand management</h3><p>Menjaga identitas visual, harga, stok, dan pengalaman pelanggan tetap konsisten.</p><div class="chips"><span class="chip">Brand identity</span><span class="chip">Katalog produk</span><span class="chip">Customer care</span></div></div>
+<div class="skill"><h3>Graphic design</h3><p>Product design, banners, campaigns, packaging, and promotional materials.</p><div class="chips"><span class="chip">Canva</span><span class="chip">Adobe Illustrator</span></div></div>
+<div class="skill"><h3>3D modeling</h3><p>Models for 3D printing, assets, and building or architectural visualization.</p><div class="chips"><span class="chip">Blender</span><span class="chip">Bambu Studio</span></div></div>
+<div class="skill"><h3>Video editing</h3><p>Short videos, product ads, and social media content.</p><div class="chips"><span class="chip">CapCut</span><span class="chip">Adobe Premiere</span></div></div>
+<div class="skill"><h3>E-commerce &amp; ads</h3><p>Managing online stores, omnichannel, and Meta Ads, all the way to measurable results.</p><div class="chips"><span class="chip">Meta Ads</span><span class="chip">Marketplace</span><span class="chip">Omnichannel</span></div></div>
+<div class="skill"><h3>Brand operations</h3><p>Invoicing, purchasing, restocking, inventory control, and stocktakes.</p><div class="chips"><span class="chip">Invoicing</span><span class="chip">Purchasing</span><span class="chip">Stocktake</span></div></div>
+<div class="skill"><h3>Brand management</h3><p>Keeping visual identity, pricing, stock, and customer experience consistent.</p><div class="chips"><span class="chip">Brand identity</span><span class="chip">Product catalog</span><span class="chip">Customer care</span></div></div>
 </div>
 </div></section>
 
 <section id="works"><div class="wrap">
 <h2>Works</h2>
-<p class="lead">Pilih kategori untuk melihat karya dan hasil proyek klien. Semua gambar di bawah masih placeholder.</p>
+<p class="lead">Pick a category to see my work and client projects.</p>
 <div class="tabs" role="tablist" id="tabs"></div>
 <div class="grid" id="grid"></div>
 </div></section>
 
 <section id="video"><div class="wrap">
 <h2>Video editing</h2>
-<p class="lead">Tiga contoh video pilihan. Ganti kotak ini dengan video kamu.</p>
-<div class="videos">
-<div class="vid"><div class="scr"><span class="play"></span></div><div class="t">Iklan produk<small>Premiere &middot; 0:45</small></div></div>
-<div class="vid"><div class="scr"><span class="play"></span></div><div class="t">Video kampanye brand<small>Premiere &middot; 1:20</small></div></div>
-<div class="vid short"><div class="scr"><span class="play"></span></div><div class="t">Short video Reels<small>CapCut &middot; 0:20</small></div></div>
+<p class="lead">Three selected video samples.</p>
+<div class="videos" id="vids">
+<div class="vid"><div class="scr"><span class="play"></span></div><div class="t">Product ad<small>Premiere &middot; 0:45</small></div></div>
+<div class="vid"><div class="scr"><span class="play"></span></div><div class="t">Brand campaign video<small>Premiere &middot; 1:20</small></div></div>
+<div class="vid short"><div class="scr"><span class="play"></span></div><div class="t">Short-form Reels video<small>CapCut &middot; 0:20</small></div></div>
 </div>
 </div></section>
 
 <section id="ops"><div class="wrap">
-<h2>Di balik layar brand</h2>
-<p class="lead">Karya visual saya ditopang pekerjaan operasional yang rapi.</p>
+<h2>Behind the brand</h2>
+<p class="lead">My visual work is backed by solid day-to-day operations.</p>
 <div class="ops">
-<div class="skill"><h3>Toko online</h3><p>Setup listing, foto, harga, dan promo di semua kanal penjualan.</p></div>
-<div class="skill"><h3>Stok &amp; gudang</h3><p>Pencatatan stok, belanja barang, dan stock opname berkala.</p></div>
-<div class="skill"><h3>Keuangan harian</h3><p>Invoicing, purchasing, dan rekap order supaya arus kas jelas.</p></div>
-<div class="skill"><h3>Iklan berbayar</h3><p>Kampanye Meta Ads dari target audiens sampai evaluasi hasil.</p></div>
+<div class="skill"><h3>Online store</h3><p>Listing setup, photos, pricing, and promos across every sales channel.</p></div>
+<div class="skill"><h3>Stock &amp; warehouse</h3><p>Stock records, purchasing, and regular stocktakes.</p></div>
+<div class="skill"><h3>Daily finance</h3><p>Invoicing, purchasing, and order recaps for clear cash flow.</p></div>
+<div class="skill"><h3>Paid ads</h3><p>Meta Ads campaigns from audience targeting to results review.</p></div>
 </div>
 </div></section>
 
 <section id="contact"><div class="wrap"><div class="contact">
 <h2>Contact us</h2>
-<p>Ceritakan kebutuhan kamu, desain, 3D, video, atau pengelolaan toko, dan saya balas secepatnya.</p>
-<div class="cc"><div class="cd"><span>Nomor HP / WhatsApp</span><a href="tel:+6281234567890">+62-895-3409-11029</a><button data-copy="+62895340911029">Salin nomor</button></div><div class="cd"><span>Gmail</span><a href="mailto:mr.andikaws@gmail.com">mr.andikaws@gmail.com</a><button data-copy="anjaya@gmail.com">Salin email</button></div></div>
+<p>Tell me what you need, and I'll get back to you as soon as possible.</p>
+<div class="cc"><div class="cd"><span>Phone / WhatsApp</span><a href="tel:+62895340911029">+62-895-3409-11029</a><button data-copy="+62895340911029">Copy number</button></div><div class="cd"><span>Gmail</span><a href="mailto:mr.andikaws@gmail.com">mr.andikaws@gmail.com</a><button data-copy="mr.andikaws@gmail.com">Copy email</button></div></div>
 </div></div></section>
-<section id="partner" style="padding-top:24px"><div class="wrap"><h2>Partnership</h2><p class="lead">Brand dan klien yang pernah bekerja sama dengan saya. Logo di bawah masih contoh.</p></div><div class="mq"><div class="mt" id="mt"></div></div></section>
+<section id="partner" style="padding-top:24px"><div class="wrap"><h2>Partnership</h2><p class="lead">Brands and clients I've worked with.</p></div><div class="mq"><div class="mt" id="mt"></div></div></section>
 </main>
-<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Pratinjau karya"><button aria-label="Tutup" id="lbx">&times;</button><div id="lbc"></div></div>
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Work preview"><button aria-label="Close" id="lbx">&times;</button><div id="lbc"></div></div>
 <div class="toast" id="toast" role="status"></div>
-<footer>&copy; 2026 ANJAYA. Semua hak dilindungi.</footer>
+<footer>&copy; 2026 ANJAYA. All rights reserved.</footer>
 
 <script>
-var CATS=["Semua","Desain grafis","3D modeling","Brand & e-commerce"];
+/* ====== PUSAT PENGATURAN: edit bagian ini saja ====== */
+var CFG={
+ phone:"+62895340911029", phoneShow:"+62-895-3409-11029", email:"mr.andikaws@gmail.com",
+ profile:"images/profil.jpg", // foto profil
+ works:[ // [kategori, judul, keterangan, foto]. Kategori: "Graphic design" / "3D modeling" / "Brand & e-commerce"
+  // ["3D modeling","Model 3D printing","Blender","images/model1.jpg"],
+ ],
+ videos:[
+  {title:"Short video 1",sub:"YouTube Shorts",src:"https://www.youtube.com/shorts/C8LHAMIZUnU",vertical:true},
+  {title:"Short video 2",sub:"YouTube Shorts",src:"https://www.youtube.com/shorts/wmU5UUAiAjA",vertical:true},
+  {title:"Short video 3",sub:"YouTube Shorts",src:"https://www.youtube.com/shorts/0IabA-SLmiQ",vertical:true},
+  // {title:"",sub:"",src:"videos/a.mp4 atau link YouTube",poster:"images/cover.jpg",vertical:false}
+ ],
+ partners:[ // {name:"Nama",logo:"images/partner1.png"}
+ ]
+};
+/* ====== selesai ====== */
+var CATS=["All","Graphic design","3D modeling","Brand & e-commerce"];
 var W=[
-["Desain grafis","Desain produk","Kemasan",270,1.2],["Desain grafis","Banner promo","Meta Ads",268,.7],["Desain grafis","Kampanye Ramadan","Kampanye",285,.9],["Desain grafis","Katalog produk","Illustrator",262,1.3],
-["3D modeling","Model 3D printing","Blender · Bambu Studio",280,1],["3D modeling","Asset game","Blender",300,.8],["3D modeling","Visualisasi rumah","SketchUp",255,1.2],["3D modeling","Interior ruang tamu","Blender",290,.75],
-["Brand & e-commerce","Dashboard penjualan","Omnichannel",265,.85],["Brand & e-commerce","Foto produk toko","Marketplace",275,1.25],["Brand & e-commerce","Laporan stock opname","Operasional",258,.8],["Brand & e-commerce","Hasil Meta Ads","Performa iklan",295,1]
+["Graphic design","Product design","Packaging",270,1.2],["Graphic design","Promo banner","Meta Ads",268,.7],["Graphic design","Campaign visual","Campaign",285,.9],["Graphic design","Product catalog","Illustrator",262,1.3],
+["3D modeling","3D-printing model","Blender · Bambu Studio",280,1],["3D modeling","Game asset","Blender",300,.8],["3D modeling","House visualization","Blender",255,1.2],["3D modeling","Living room interior","Blender",290,.75],
+["Brand & e-commerce","Sales dashboard","Omnichannel",265,.85],["Brand & e-commerce","Store product photos","Marketplace",275,1.25],["Brand & e-commerce","Stocktake report","Operations",258,.8],["Brand & e-commerce","Meta Ads results","Ad performance",295,1]
 ];
+if(CFG.works.length)W=CFG.works.map(function(x){return[x[0],x[1],x[2],270,1,x[3]]});
 function tile(w,i){
+ if(w[5])return '<figure class="tile" data-c="'+w[0]+'"><img class="ph" loading="lazy" src="'+w[5]+'" alt="'+w[1]+'"><figcaption>'+w[1]+'<small>'+w[2]+'</small></figcaption></figure>';
  var h=w[3],r=w[4],H=Math.round(300*r),
  svg='<svg class="ph" viewBox="0 0 300 '+H+'" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder '+w[1]+'"><defs><linearGradient id="g'+i+'" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="hsl('+h+',70%,'+(22+i%3*6)+'%)"/><stop offset="1" stop-color="hsl('+(h+30)+',60%,7%)"/></linearGradient></defs><rect width="300" height="'+H+'" fill="url(#g'+i+')"/><circle cx="'+(60+i*37%190)+'" cy="'+(H*.35)+'" r="'+(40+i*9%40)+'" fill="hsl('+h+',80%,65%)" opacity=".22"/><rect x="'+(130+i*23%80)+'" y="'+(H*.5)+'" width="110" height="'+(H*.28)+'" rx="14" fill="#fff" opacity=".07"/></svg>';
  return '<figure class="tile" data-c="'+w[0]+'">'+svg+'<figcaption>'+w[1]+'<small>'+w[2]+'</small></figcaption></figure>';
@@ -191,12 +211,12 @@ t.innerHTML=CATS.map(function(c,i){return '<button class="tab" role="tab" aria-s
 t.addEventListener("click",function(e){
  var b=e.target.closest(".tab");if(!b)return;
  t.querySelectorAll(".tab").forEach(function(x){x.setAttribute("aria-selected",x==b)});
- g.querySelectorAll(".tile").forEach(function(f){f.style.display=(b.dataset.c=="Semua"||f.dataset.c==b.dataset.c)?"":"none"});
+ g.querySelectorAll(".tile").forEach(function(f){f.style.display=(b.dataset.c=="All"||f.dataset.c==b.dataset.c)?"":"none"});
 });
 var fine=matchMedia("(pointer:fine)").matches,reduce=matchMedia("(prefers-reduced-motion:reduce)").matches;
 var IC=['<path d="M3 4h2l2.4 11h10.2L20 7H6.2"/><circle cx="9" cy="20" r="1.4"/><circle cx="17" cy="20" r="1.4"/>','<path d="M5 8h14l-1 12H6L5 8z"/><path d="M9 8V6a3 3 0 016 0v2"/>','<path d="M3 7.5L12 3l9 4.5v9L12 21l-9-4.5v-9z"/><path d="M3 7.5L12 12l9-4.5M12 12v9"/>','<path d="M3 12V4h8l10 10-8 8L3 12z"/><circle cx="7.5" cy="8.5" r="1.3"/>','<path d="M12 20s-8-5-8-11a4.5 4.5 0 018-2.5A4.5 4.5 0 0120 9c0 6-8 11-8 11z"/>','<path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3z"/>'];
-var st=document.getElementById("stage"),S=innerWidth<600?46:innerWidth<1000?60:76;
-var POS=[[62,8,60],[80,26,-40],[68,52,120],[88,60,20],[52,34,-100],[76,78,-20]];
+var M=innerWidth<700,st=document.getElementById("stage"),S=M?44:innerWidth<1000?58:74;
+var POS=M?[[6,8,40],[28,6,-40],[50,9,30],[72,6,-20]]:[[68,8,50],[85,22,-40],[72,40,80],[86,52,10],[68,62,-70],[82,70,0]];
 st.innerHTML=POS.map(function(p,i){var ic='<svg viewBox="0 0 24 24">'+IC[i]+'</svg>',f='';for(var k=0;k<6;k++)f+='<div class="f">'+ic+'</div>';
  return '<div class="cube" style="--s:'+S+'px;--z:'+p[2]+'px;--d:'+(3+i*.7)+'s;--r:'+(14+i*4)+'s;left:'+p[0]+'%;top:'+p[1]+'%"><div class="box">'+f+'</div></div>'}).join("");
 var hero=document.getElementById("hero");
@@ -213,15 +233,22 @@ g.addEventListener("pointermove",function(e){if(!fine||reduce)return;var f=e.tar
 g.addEventListener("pointerout",function(e){var f=e.target.closest(".tile");if(f)f.style.transform=""});
 t.addEventListener("click",function(e){if(!e.target.closest(".tab"))return;g.querySelectorAll(".tile").forEach(function(f){f.classList.remove("pop");void f.offsetWidth;f.classList.add("pop")})});
 var lb=document.getElementById("lb"),lbc=document.getElementById("lbc");
-g.addEventListener("click",function(e){var f=e.target.closest(".tile");if(!f)return;lbc.innerHTML=f.querySelector("svg").outerHTML+"<p>"+f.querySelector("figcaption").innerHTML.replace("<small>","<br><small style='color:#c4b5fd'>")+"</p>";lb.classList.add("on")});
+g.addEventListener("click",function(e){var f=e.target.closest(".tile");if(!f)return;lbc.innerHTML=(f.querySelector("img")||f.querySelector("svg")).outerHTML+"<p>"+f.querySelector("figcaption").innerHTML.replace("<small>","<br><small style='color:#c4b5fd'>")+"</p>";lb.classList.add("on")});
 function cl(){lb.classList.remove("on")}
-lb.addEventListener("click",function(e){if(e.target.tagName!="svg"&&e.target.tagName!="P")cl()});
+lb.addEventListener("click",function(e){if(e.target.tagName!="svg"&&e.target.tagName!="IMG"&&e.target.tagName!="P")cl()});
 addEventListener("keydown",function(e){if(e.key=="Escape")cl()});
-var P=["Beefour Creative Agency","WESTART Shopping","CitraSR12","Universal Mart","Rumah Kebangsaan Pancasila","Rumah Tanah Liat Citra","Arinda Food","Lifebook Academy"],SH=['<circle cx="12" cy="12" r="10"/>','<rect x="3" y="3" width="18" height="18" rx="4"/>','<path d="M12 2l10 19H2z"/>','<path d="M12 2l9 5v10l-9 5-9-5V7z"/>'];
-var ph=P.map(function(n,i){return '<div class="pl"><svg viewBox="0 0 24 24">'+SH[i%4]+'</svg>'+n+'</div>'}).join("");
+var P=["Nusa Studio","Kopi Rumah","PrintLab","Arsitek ID","Toko Maju","Gudang Kita","Pixel Hub","Brand Co"],SH=['<circle cx="12" cy="12" r="10"/>','<rect x="3" y="3" width="18" height="18" rx="4"/>','<path d="M12 2l10 19H2z"/>','<path d="M12 2l9 5v10l-9 5-9-5V7z"/>'];
+var ph=(CFG.partners.length?CFG.partners:P.map(function(n){return{name:n}})).map(function(p,i){return '<div class="pl">'+(p.logo?'<img src="'+p.logo+'" alt="" height="30">':'<svg viewBox="0 0 24 24">'+SH[i%4]+'</svg>')+p.name+'</div>'}).join("");
 document.getElementById("mt").innerHTML=ph+ph;
+if(CFG.profile){var pp=document.getElementById("portrait");pp.style.padding=0;pp.style.overflow="hidden";pp.innerHTML='<img src="'+CFG.profile+'" alt="Anjaya" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 28%">'}
+var cds=document.querySelectorAll(".cd");
+cds[0].querySelector("a").href="tel:"+CFG.phone;cds[0].querySelector("a").textContent=CFG.phoneShow;cds[0].querySelector("button").dataset.copy=CFG.phone;
+cds[1].querySelector("a").href="mailto:"+CFG.email;cds[1].querySelector("a").textContent=CFG.email;cds[1].querySelector("button").dataset.copy=CFG.email;
+if(CFG.videos.length)document.getElementById("vids").innerHTML=CFG.videos.map(function(v){var m=v.src.match(/(?:youtu\.be\/|v=|embed\/|shorts\/)([\w-]{11})/),ar=v.vertical?"9/16":"16/9",mx=v.vertical?"height:500px;width:auto;max-width:100%;margin:0 auto;":"",
+ md=m?'<iframe src="https://www.youtube.com/embed/'+m[1]+'" style="width:100%;aspect-ratio:'+ar+';'+mx+'border:0;display:block" allowfullscreen loading="lazy"></iframe>':'<video controls preload="metadata" playsinline'+(v.poster?' poster="'+v.poster+'"':'')+' src="'+v.src+'" style="width:100%;aspect-ratio:'+ar+';'+mx+'object-fit:contain;background:#000;display:block"></video>';
+ return '<div class="vid">'+md+'<div class="t">'+(v.title||"")+'<small>'+(v.sub||"")+'</small></div></div>'}).join("");
 var ts=document.getElementById("toast"),tm;
-document.querySelectorAll("[data-copy]").forEach(function(b){b.addEventListener("click",function(){var v=b.dataset.copy;(navigator.clipboard?navigator.clipboard.writeText(v):Promise.reject()).catch(function(){}).then(function(){ts.textContent=v+" disalin";ts.classList.add("on");clearTimeout(tm);tm=setTimeout(function(){ts.classList.remove("on")},1800)})})});
+document.querySelectorAll("[data-copy]").forEach(function(b){b.addEventListener("click",function(){var v=b.dataset.copy;(navigator.clipboard?navigator.clipboard.writeText(v):Promise.reject()).catch(function(){}).then(function(){ts.textContent=v+" copied";ts.classList.add("on");clearTimeout(tm);tm=setTimeout(function(){ts.classList.remove("on")},1800)})})});
 if(fine)document.querySelectorAll(".btn").forEach(function(b){b.addEventListener("pointermove",function(e){var r=b.getBoundingClientRect();b.style.transform="translate("+(e.clientX-r.left-r.width/2)*.15+"px,"+(e.clientY-r.top-r.height/2)*.25+"px)"});b.addEventListener("pointerleave",function(){b.style.transform=""})});
 </script>
 </body>
