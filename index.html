@@ -145,6 +145,11 @@ header .wrap{transition:height .25s}header.sc .wrap{height:52px}header.sc{box-sh
 
 @media (min-width:1200px){.hero p{max-width:min(640px,50vw);font-size:19px}.lead{max-width:760px}.about .lead{max-width:900px}}
 @media (min-width:1500px){.grid{columns:4}body{font-size:17px}}
+
+.tile figcaption{opacity:0;transition:opacity .25s}.tile:hover figcaption,.tile:focus-visible figcaption{opacity:1}
+@media (hover:none){.tile figcaption{display:none}}
+.tile img.ph{width:100%;height:auto;min-height:0}
+.lb div{max-width:min(1000px,100%)}.lb img,.lb svg{width:auto;max-width:100%;max-height:78vh;margin:0 auto;display:block;background:var(--surface)}.lb svg{width:100%}
 </style>
 </head>
 <body>
@@ -247,8 +252,70 @@ header .wrap{transition:height .25s}header.sc .wrap{height:52px}header.sc{box-sh
 var CFG={
  phone:"+62895340911029", phoneShow:"+62-895-3409-11029", email:"mr.andikaws@gmail.com",
  profile:"profil.jpg?v=2", // jalur foto profil (file ada di folder yang sama dengan index.html)
- works:[ // [kategori, judul, keterangan, foto]. Kategori: "Graphic design" / "3D modeling" / "Brand & e-commerce"
-  // ["3D modeling","Model 3D printing","Blender","images/model1.jpg"],
+ works:[ // [kategori, judul, keterangan, foto, lebar, tinggi]. Kategori: "Graphic design" / "3D modeling" / "Brand & e-commerce"
+  ["Graphic design", "Marketplace decoration", "Citra SR12", "images/graphic-design-01.webp", 1080, 1350],
+  ["3D modeling", "3D model", "Blender", "images/3d-modeling-01.webp", 1339, 599],
+  ["Brand & e-commerce", "Store layout", "Marketplace", "images/brand-ecommerce-01.webp", 1400, 990],
+  ["Graphic design", "Marketplace decoration", "Citra SR12", "images/graphic-design-02.webp", 1080, 1350],
+  ["3D modeling", "3D model", "Blender", "images/3d-modeling-02.webp", 414, 440],
+  ["Brand & e-commerce", "Store layout", "Marketplace", "images/brand-ecommerce-02.webp", 1400, 990],
+  ["Graphic design", "Marketplace decoration", "Citra SR12", "images/graphic-design-03.webp", 1020, 1020],
+  ["3D modeling", "3D model", "Blender", "images/3d-modeling-03.webp", 1400, 672],
+  ["Brand & e-commerce", "Marketplace decoration", "Citra SR12", "images/brand-ecommerce-03.webp", 1080, 1350],
+  ["Graphic design", "Marketplace decoration", "Citra SR12", "images/graphic-design-04.webp", 1020, 1020],
+  ["3D modeling", "3D model", "Blender", "images/3d-modeling-04.webp", 1400, 703],
+  ["Brand & e-commerce", "Marketplace decoration", "Citra SR12", "images/brand-ecommerce-04.webp", 1080, 1350],
+  ["Graphic design", "Marketplace decoration", "Citra SR12", "images/graphic-design-05.webp", 1020, 1020],
+  ["3D modeling", "3D model", "Blender", "images/3d-modeling-05.webp", 1400, 622],
+  ["Brand & e-commerce", "Marketplace decoration", "Citra SR12", "images/brand-ecommerce-05.webp", 1020, 1020],
+  ["Graphic design", "Store decoration", "Marketplace", "images/graphic-design-06.webp", 1400, 921],
+  ["3D modeling", "3D model", "Blender", "images/3d-modeling-06.webp", 1400, 663],
+  ["Brand & e-commerce", "Marketplace decoration", "Citra SR12", "images/brand-ecommerce-06.webp", 720, 480],
+  ["Graphic design", "Store decoration", "Marketplace", "images/graphic-design-07.webp", 1400, 921],
+  ["3D modeling", "3D model", "Blender", "images/3d-modeling-07.webp", 1400, 648],
+  ["Brand & e-commerce", "Store decoration", "Marketplace", "images/brand-ecommerce-07.webp", 640, 640],
+  ["Graphic design", "Meta Ads feed", "Meta Ads", "images/graphic-design-08.webp", 1080, 1350],
+  ["3D modeling", "3D model", "Blender", "images/3d-modeling-08.webp", 1400, 715],
+  ["Brand & e-commerce", "Store decoration", "Marketplace", "images/brand-ecommerce-08.webp", 1400, 921],
+  ["Graphic design", "Meta Ads feed", "Meta Ads", "images/graphic-design-09.webp", 1080, 1350],
+  ["3D modeling", "3D model", "Blender", "images/3d-modeling-09.webp", 1400, 839],
+  ["Brand & e-commerce", "Store decoration", "Marketplace", "images/brand-ecommerce-09.webp", 640, 640],
+  ["Graphic design", "Social media post", "Citra SR12", "images/graphic-design-10.webp", 1400, 1400],
+  ["3D modeling", "3D model", "Blender", "images/3d-modeling-10.webp", 817, 395],
+  ["Brand & e-commerce", "Product design", "Marketplace", "images/brand-ecommerce-10.webp", 1080, 1080],
+  ["Graphic design", "Social media post", "Citra SR12", "images/graphic-design-11.webp", 1000, 1000],
+  ["3D modeling", "3D model", "Blender", "images/3d-modeling-11.webp", 1400, 602],
+  ["Brand & e-commerce", "Product design", "Marketplace", "images/brand-ecommerce-11.webp", 1080, 1080],
+  ["Graphic design", "Social media post", "Citra SR12", "images/graphic-design-12.webp", 1400, 1400],
+  ["3D modeling", "3D model", "Blender", "images/3d-modeling-12.webp", 1166, 754],
+  ["Brand & e-commerce", "Product design", "Marketplace", "images/brand-ecommerce-12.webp", 1080, 1080],
+  ["Graphic design", "Promo poster", "Campaign", "images/graphic-design-13.webp", 990, 1400],
+  ["3D modeling", "3D model", "Blender", "images/3d-modeling-13.webp", 1400, 684],
+  ["Brand & e-commerce", "Product design", "Marketplace", "images/brand-ecommerce-13.webp", 1080, 1080],
+  ["3D modeling", "3D model", "Blender", "images/3d-modeling-14.webp", 488, 316],
+  ["Brand & e-commerce", "Ad creative", "Meta Ads", "images/brand-ecommerce-14.webp", 1400, 1400],
+  ["3D modeling", "3D model", "Blender", "images/3d-modeling-15.webp", 1151, 567],
+  ["Brand & e-commerce", "Category banner", "Marketplace", "images/brand-ecommerce-15.webp", 1400, 921],
+  ["3D modeling", "3D model", "Blender", "images/3d-modeling-16.webp", 923, 612],
+  ["Brand & e-commerce", "Product visual", "Marketplace", "images/brand-ecommerce-16.webp", 1000, 1000],
+  ["3D modeling", "3D model", "Blender", "images/3d-modeling-17.webp", 503, 641],
+  ["Brand & e-commerce", "Product banner", "Marketplace", "images/brand-ecommerce-17.webp", 1024, 1024],
+  ["3D modeling", "3D model", "Blender", "images/3d-modeling-18.webp", 868, 545],
+  ["Brand & e-commerce", "Product banner", "Marketplace", "images/brand-ecommerce-18.webp", 1024, 1024],
+  ["3D modeling", "3D model", "Blender", "images/3d-modeling-19.webp", 1400, 720],
+  ["Brand & e-commerce", "Product visual", "Marketplace", "images/brand-ecommerce-19.webp", 1024, 1024],
+  ["3D modeling", "3D model", "Blender", "images/3d-modeling-20.webp", 607, 567],
+  ["3D modeling", "3D model", "Blender", "images/3d-modeling-21.webp", 478, 650],
+  ["3D modeling", "3D model", "Blender", "images/3d-modeling-22.webp", 1400, 669],
+  ["3D modeling", "3D model", "Blender", "images/3d-modeling-23.webp", 717, 542],
+  ["3D modeling", "3D model", "Blender", "images/3d-modeling-24.webp", 407, 368],
+  ["3D modeling", "3D model", "Blender", "images/3d-modeling-25.webp", 648, 582],
+  ["3D modeling", "3D model", "Blender", "images/3d-modeling-26.webp", 1400, 703],
+  ["3D modeling", "3D model", "Blender", "images/3d-modeling-27.webp", 1400, 650],
+  ["3D modeling", "3D model", "Blender", "images/3d-modeling-28.webp", 918, 747],
+  ["3D modeling", "3D model", "Blender", "images/3d-modeling-29.webp", 1016, 650],
+  ["3D modeling", "3D model", "Blender", "images/3d-modeling-30.webp", 1140, 802],
+  ["3D modeling", "3D model", "Blender", "images/3d-modeling-31.webp", 1400, 826]
  ],
  videos:[
   {title:"Short video 1",sub:"YouTube Shorts",src:"https://www.youtube.com/shorts/C8LHAMIZUnU",vertical:true},
@@ -272,9 +339,9 @@ var W=[
 ["3D modeling","3D-printing model","Blender · Bambu Studio",280,1],["3D modeling","Game asset","Blender",300,.8],["3D modeling","House visualization","Blender",255,1.2],["3D modeling","Living room interior","Blender",290,.75],
 ["Brand & e-commerce","Sales dashboard","Omnichannel",265,.85],["Brand & e-commerce","Store product photos","Marketplace",275,1.25],["Brand & e-commerce","Stocktake report","Operations",258,.8],["Brand & e-commerce","Meta Ads results","Ad performance",295,1]
 ];
-if(CFG.works.length)W=CFG.works.map(function(x){return[x[0],x[1],x[2],270,1,x[3]]});
+if(CFG.works.length)W=CFG.works.map(function(x){return[x[0],x[1],x[2],270,1,x[3],x[4],x[5]]});
 function tile(w,i){
- if(w[5])return '<figure class="tile" data-c="'+w[0]+'"><img class="ph" loading="lazy" src="'+w[5]+'" alt="'+w[1]+'"><figcaption>'+w[1]+'<small>'+w[2]+'</small></figcaption></figure>';
+ if(w[5])return '<figure class="tile" data-c="'+w[0]+'"><img class="ph" loading="lazy" decoding="async"'+(w[6]?' width="'+w[6]+'" height="'+w[7]+'"':'')+' src="'+w[5]+'" alt="'+w[1]+' – '+w[2]+'"><figcaption>'+w[1]+'<small>'+w[2]+'</small></figcaption></figure>';
  var h=w[3],r=w[4],H=Math.round(300*r),
  svg='<svg class="ph" viewBox="0 0 300 '+H+'" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder '+w[1]+'"><defs><linearGradient id="g'+i+'" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="hsl('+h+',70%,'+(22+i%3*6)+'%)"/><stop offset="1" stop-color="hsl('+(h+30)+',60%,7%)"/></linearGradient></defs><rect width="300" height="'+H+'" fill="url(#g'+i+')"/><circle cx="'+(60+i*37%190)+'" cy="'+(H*.35)+'" r="'+(40+i*9%40)+'" fill="hsl('+h+',80%,65%)" opacity=".22"/><rect x="'+(130+i*23%80)+'" y="'+(H*.5)+'" width="110" height="'+(H*.28)+'" rx="14" fill="#fff" opacity=".07"/></svg>';
  return '<figure class="tile" data-c="'+w[0]+'">'+svg+'<figcaption>'+w[1]+'<small>'+w[2]+'</small></figcaption></figure>';
