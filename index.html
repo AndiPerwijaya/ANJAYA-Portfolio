@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>ANJAYA — Portfolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#0a0710;--surface:#15101f;--line:#2a2140;--text:#ece8f7;--muted:#9a90b5;--p1:#7c3aed;--p2:#a78bfa;--p3:#c4b5fd;
 box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -23,13 +23,13 @@ nav{display:flex;gap:26px;font-size:16px;color:var(--muted)}
 nav a:hover{color:var(--p3)}
 .hero{position:relative;overflow:hidden;padding:84px 0 72px}
 .hero::before{content:"";position:absolute;width:560px;height:560px;right:-160px;top:-140px;background:radial-gradient(circle,rgba(124,58,237,.55),transparent 66%);filter:blur(10px);pointer-events:none}
-.hero h1{position:relative;font-family:Fraunces,serif;font-weight:600;font-size:clamp(56px,13vw,160px);line-height:.95;letter-spacing:.02em;margin:0;background:linear-gradient(180deg,#f5f0ff 20%,var(--p2) 70%,var(--p1));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero h1{position:relative;font-family:Fraunces,serif;font-weight:800;font-variation-settings:"opsz" 144;font-size:clamp(56px,13vw,160px);line-height:.95;letter-spacing:.02em;margin:0;background:linear-gradient(180deg,#f5f0ff 20%,var(--p2) 70%,var(--p1));-webkit-background-clip:text;background-clip:text;color:transparent}
 .hero p{position:relative;max-width:min(520px,58vw);color:var(--muted);margin:26px 0 30px;font-size:18px}
 .btns{display:flex;gap:12px;flex-wrap:wrap;position:relative}
 .btn{padding:12px 24px;border-radius:999px;border:1px solid var(--p1);font-weight:700;font-size:15px}
 .btn.fill{background:var(--p1)}
 .btn:hover{background:var(--p2);color:#10091f;border-color:var(--p2)}
-section{padding:72px 0}
+section{padding:72px 0;border-top:1px solid var(--line)}
 h2{font-family:Fraunces,serif;font-weight:400;font-size:clamp(30px,5vw,46px);line-height:1.15;margin:0 0 14px}
 .lead{color:var(--muted);max-width:640px;margin:0 0 34px}
 .about{display:grid;grid-template-columns:300px 1fr;gap:48px;align-items:stretch}.about .portrait{aspect-ratio:auto;min-height:260px;position:relative}.about .stats{margin:26px 0 0}
@@ -113,24 +113,56 @@ header .wrap{transition:height .25s}header.sc .wrap{height:52px}header.sc{box-sh
 .lb .lbn{top:50%;right:auto;translate:0 -50%;width:48px;height:48px;border-radius:50%;border:1px solid var(--line);background:rgba(21,16,31,.85);font-size:28px;padding:0 0 4px}.lb .lbn.l{left:16px}.lb .lbn.r{right:16px;left:auto}.lb .lbn:hover{border-color:var(--p2)}
 .top{position:fixed;right:18px;bottom:calc(env(safe-area-inset-bottom,0px) + 20px);width:48px;height:48px;border-radius:50%;border:1px solid var(--line);background:rgba(21,16,31,.9);color:var(--p3);cursor:pointer;display:grid;place-items:center;z-index:40;opacity:0;translate:0 16px;pointer-events:none;transition:.3s}.top.on{opacity:1;translate:0 0;pointer-events:auto}.top:hover{border-color:var(--p2)}.top svg{position:absolute;inset:0;width:100%;height:100%;transform:rotate(-90deg)}.top circle{fill:none;stroke:var(--p2);stroke-width:2;stroke-dasharray:131.9;stroke-dashoffset:131.9}.top b{font-size:18px;line-height:1}
 @media (max-width:700px){.orb{width:340px;height:340px}.viewer{display:none}}
+
+/* ===== upgrade: hero, expertise, process, testimonials ===== */
+.eyebrow{font:500 13px/1.4 Manrope,sans-serif;letter-spacing:.1em;color:var(--p2);margin:0 0 8px}
+.eyebrow.hk{text-transform:uppercase;letter-spacing:.24em;font-size:12.5px;color:var(--p3);margin:0 0 14px;position:relative;max-width:min(560px,70vw)}
+.btn.glowb{box-shadow:0 0 0 1px rgba(124,58,237,.25),0 0 22px rgba(124,58,237,.35)}
+.btn.fill span{display:inline-block;transition:transform .2s}.btn.fill:hover span{transform:translateX(3px)}
+
+
+
+
+.xh{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:28px}
+.xcat{display:flex;gap:10px;font-size:14px;color:var(--muted)}.xcat i{font-style:normal;opacity:.6}.xcat a:hover{color:var(--p3)}
+.xgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.xc{display:flex;gap:18px;align-items:flex-start;padding:22px;background:linear-gradient(160deg,rgba(32,22,52,.7),rgba(15,10,26,.7))}
+.ic{flex:none;width:48px;height:48px;border-radius:50%;border:1px solid var(--p1);background:rgba(124,58,237,.12);box-shadow:0 0 16px rgba(124,58,237,.3);display:grid;place-items:center}
+.ic svg{width:22px;height:22px;fill:none;stroke:var(--p2);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.xc h3{margin:2px 0 6px;font-size:17px}.xc p{margin-bottom:14px}
+.xc .chip{background:rgba(124,58,237,.1);border:1px solid var(--p1);box-shadow:0 0 8px rgba(124,58,237,.3);font-size:12px;padding:3px 12px}
+.pt{display:block}
+.pt h2{font-size:clamp(28px,3.4vw,38px)}.pt .lead{font-size:15px}
+
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.step{position:relative;display:flex;flex-direction:column;gap:2px;font-size:13px;color:var(--muted);line-height:1.5}
+.step:not(:last-child)::after{content:"";position:absolute;top:24px;left:58px;right:-2px;height:1px;background:var(--line)}
+.step .ic{margin-bottom:10px}.step small{color:var(--p2);font-size:12px}.step b{color:var(--text);font-size:15px}
+@media (max-width:980px){.xgrid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:640px){.xgrid{grid-template-columns:1fr}.xcat{display:none}
+.steps{grid-template-columns:1fr;gap:20px}.step{display:grid;grid-template-columns:48px 1fr;column-gap:16px}.step .ic{grid-row:1/4;margin:0}.step:not(:last-child)::after{top:56px;left:24px;right:auto;width:1px;height:calc(100% - 36px)}.step small{align-self:end}
+}
 </style>
 </head>
 <body>
 <div class="bar" id="bar"></div><div class="glow" id="glow"></div><div class="orb" id="o1"></div><div class="orb" id="o2"></div>
 <header><div class="wrap"><a class="logo" href="#top">ANJAYA</a>
-<nav><a href="#about">About</a><a href="#works">Works</a><a href="#contact">Contact</a></nav></div></header>
+<nav><a href="#hero">Home</a><a href="#about">About</a><a href="#works">Works</a></nav></div></header>
 
 <main id="top">
 <div class="hero" id="hero"><div class="stage" id="stage" aria-hidden="true"></div><div class="wrap">
+<div class="eyebrow hk">Graphic Designer / 3D Modeler / Video Editor</div>
 <h1>ANJAYA</h1>
 <p>Graphic designer, 3D modeler, video editor, and e-commerce brand manager. From visuals to warehouse stock, I handle it all.</p>
-<div class="btns"><a class="btn fill" href="#works">View works</a><a class="btn" href="#about">About me</a></div>
+<div class="btns"><a class="btn fill" href="#works">View Works <span aria-hidden="true">&rarr;</span></a><a class="btn glowb" href="#about">About Me</a></div>
+
 </div></div>
 
 <section id="about"><div class="wrap">
 <div class="about">
 <div class="portrait" id="portrait">Add your profile photo here</div>
 <div>
+<div class="eyebrow">01 / About</div>
 <h2>Hi, I'm Anjaya.</h2>
 <p class="lead" style="margin-bottom:0">I create designs, 3D models, and videos, then help make sure the products sell and the stock stays organized. Because I understand both the creative and operational sides, my work looks good and holds up in the real world.</p>
 <div class="stats">
@@ -141,18 +173,23 @@ header .wrap{transition:height .25s}header.sc .wrap{height:52px}header.sc{box-sh
 
 </div></div>
 
-<div class="skills">
-<div class="skill"><h3>Graphic design</h3><p>Product design, banners, campaigns, packaging, and promotional materials.</p><div class="chips"><span class="chip">Canva</span><span class="chip">Adobe Illustrator</span></div></div>
-<div class="skill"><h3>3D modeling</h3><p>Models for 3D printing, assets, and building or architectural visualization.</p><div class="chips"><span class="chip">Blender</span><span class="chip">Bambu Studio</span></div></div>
-<div class="skill"><h3>Video editing</h3><p>Short videos, product ads, and social media content.</p><div class="chips"><span class="chip">CapCut</span><span class="chip">Adobe Premiere</span></div></div>
-<div class="skill"><h3>E-commerce &amp; ads</h3><p>Managing online stores, omnichannel, and Meta Ads, all the way to measurable results.</p><div class="chips"><span class="chip">Meta Ads</span><span class="chip">Marketplace</span><span class="chip">Omnichannel</span></div></div>
-<div class="skill"><h3>Brand operations</h3><p>Invoicing, purchasing, restocking, inventory control, and stocktakes.</p><div class="chips"><span class="chip">Invoicing</span><span class="chip">Purchasing</span><span class="chip">Stocktake</span></div></div>
-<div class="skill"><h3>Brand management</h3><p>Keeping visual identity, pricing, stock, and customer experience consistent.</p><div class="chips"><span class="chip">Brand identity</span><span class="chip">Product catalog</span><span class="chip">Customer care</span></div></div>
+</div></section>
+
+<section id="expertise"><div class="wrap">
+<div class="xh"><div><div class="eyebrow">02 / Expertise &amp; Services</div><h2 style="margin:0">What I Do Best</h2></div>
+<div class="xcat"><a href="#works">Design</a><i>/</i><a href="#works">3D</a><i>/</i><a href="#video">Video</a><i>/</i><a href="#ops">E-commerce</a></div></div>
+<div class="xgrid">
+<div class="skill xc"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 20l1-4L16 5l3 3L8 19l-4 1z"/><path d="M14 7l3 3"/></svg></div><div><h3>Graphic Design</h3><p>Product design, branding, campaign, packaging, and promotional materials.</p><div class="chips"><span class="chip">Branding</span><span class="chip">Packaging</span><span class="chip">Social Media</span></div></div></div>
+<div class="skill xc"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 7.5L12 3l9 4.5v9L12 21l-9-4.5v-9z"/><path d="M3 7.5L12 12l9-4.5M12 12v9"/></svg></div><div><h3>3D Modeling</h3><p>Models for 3D printing, assets, and product visualization.</p><div class="chips"><span class="chip">Blender</span><span class="chip">3D Product</span><span class="chip">Environment</span></div></div></div>
+<div class="skill xc"><div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M10 9.5v5l4.5-2.5z"/></svg></div><div><h3>Video Editing</h3><p>Short videos, product reels, and social media content.</p><div class="chips"><span class="chip">CapCut</span><span class="chip">Adobe Premiere</span><span class="chip">Motion</span></div></div></div>
+<div class="skill xc"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 10v4h3l7 4V6L6 10H3z"/><path d="M16.5 9a4 4 0 010 6"/><path d="M19 6.5a8 8 0 010 11"/></svg></div><div><h3>Brand Management</h3><p>Managing visual identity, marketing, stock, and e-commerce operation.</p><div class="chips"><span class="chip">Brand Identity</span><span class="chip">Product Catalog</span><span class="chip">Marketplace</span></div></div></div>
+<div class="skill xc"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 9l1.5-5h13L20 9"/><path d="M4 9a2.5 2.5 0 005 0 2.5 2.5 0 006 0 2.5 2.5 0 005 0"/><path d="M5 12v8h14v-8"/><path d="M10 20v-5h4v5"/></svg></div><div><h3>E-commerce &amp; Ads</h3><p>Marketplace management, ad setup, content design, and campaign optimization.</p><div class="chips"><span class="chip">Shopee</span><span class="chip">TikTok Shop</span><span class="chip">Meta Ads</span></div></div></div>
+<div class="skill xc"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.3 5.3l2.1 2.1M16.6 16.6l2.1 2.1M18.7 5.3l-2.1 2.1M7.4 16.6l-2.1 2.1"/></svg></div><div><h3>Brand Operations</h3><p>Inventory, purchasing, and operational support for daily business needs.</p><div class="chips"><span class="chip">Stock Control</span><span class="chip">Purchasing</span><span class="chip">Logistics</span></div></div></div>
 </div>
 </div></section>
 
 <section id="works"><div class="wrap">
-<div class="wh"><div><h2>Works</h2>
+<div class="wh"><div><div class="eyebrow">03 / Works</div><h2>Works</h2>
 <p class="lead">Pick a category to see my work and client projects.</p></div><div class="viewer" id="viewer" aria-hidden="true"><div class="vbox" id="vbox"></div><small>Drag to rotate</small></div></div>
 <div class="tabs" role="tablist" id="tabs"></div>
 <div class="grid" id="grid"></div>
@@ -178,6 +215,17 @@ header .wrap{transition:height .25s}header.sc .wrap{height:52px}header.sc{box-sh
 <div class="skill"><h3>Paid ads</h3><p>Meta Ads campaigns from audience targeting to results review.</p></div>
 </div>
 </div></section>
+
+<section id="process"><div class="wrap"><div class="pt">
+<div class="pl1"><div class="eyebrow">04 / My Process</div><h2>How I Work</h2><p class="lead" style="margin-bottom:28px">A simple and effective process to get the best result.</p>
+<div class="steps">
+<div class="step"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4V5z"/></svg></div><small>01</small><b>Brief</b><span>Understand the needs and goals.</span></div>
+<div class="step"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5"/></svg></div><small>02</small><b>Research</b><span>Explore, analyze, and gather references.</span></div>
+<div class="step"><div class="ic"><svg viewBox="0 0 24 24"><path d="M9 18h6M10 21h4M12 3a6 6 0 00-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0012 3z"/></svg></div><small>03</small><b>Design</b><span>Create concepts and visuals.</span></div>
+<div class="step"><div class="ic"><svg viewBox="0 0 24 24"><path d="M20 12a8 8 0 01-14 5.3M4 12a8 8 0 0114-5.3"/><path d="M18 3v4h-4M6 21v-4h4"/></svg></div><small>04</small><b>Revision</b><span>Refine based on feedback.</span></div>
+<div class="step"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l3 3 5-6"/></svg></div><small>05</small><b>Final Delivery</b><span>Deliver high-quality files and support.</span></div>
+</div></div>
+</div></div></section>
 
 <section id="contact"><div class="wrap"><div class="contact"><div class="stage cstage" id="cstage" aria-hidden="true"></div>
 <h2>Contact us</h2>
@@ -283,14 +331,14 @@ cs.innerHTML=[[5,14,30],[88,12,-30],[8,68,-20],[87,68,40]].map(function(p,i){ret
 if(fine&&!reduce){ct.addEventListener("pointermove",function(e){var r=ct.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;cs.style.transform="rotateY("+x*18+"deg) rotateX("+(-y*14)+"deg)"});ct.addEventListener("pointerleave",function(){cs.style.transform=""})}
 if("IntersectionObserver" in window&&!reduce){
  var rv=new IntersectionObserver(function(es){es.forEach(function(en){if(!en.isIntersecting)return;var el=en.target;rv.unobserve(el);el.classList.add("in");setTimeout(function(){el.classList.remove("rv","in");el.style.transitionDelay=""},1400)})},{threshold:.12,rootMargin:"0px 0px -6% 0px"});
- document.querySelectorAll("h2,.lead,.portrait,.stat,.skill,.vid,.cd,.tabs").forEach(function(el){el.classList.add("rv");el.style.transitionDelay=([].indexOf.call(el.parentNode.children,el)%4*90)+"ms";rv.observe(el)});
+ document.querySelectorAll("h2,.lead,.eyebrow,.portrait,.stat,.skill,.vid,.cd,.tabs,.step").forEach(function(el){el.classList.add("rv");el.style.transitionDelay=([].indexOf.call(el.parentNode.children,el)%4*90)+"ms";rv.observe(el)});
 }
 document.querySelectorAll(".skill,.stat,.cd,.vid").forEach(function(el){el.classList.add("sp")});
 document.addEventListener("pointermove",function(e){if(!fine||!e.target.closest)return;var el=e.target.closest(".sp,.portrait");if(!el)return;var r=el.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top;el.style.setProperty("--mx",x+"px");el.style.setProperty("--my",y+"px");if(!reduce&&(el.classList.contains("skill")||el.classList.contains("portrait")))el.style.transform="perspective(800px) rotateY("+((x/r.width-.5)*8)+"deg) rotateX("+(-(y/r.height-.5)*8)+"deg) translateY(-3px)"});
 document.addEventListener("pointerout",function(e){var el=e.target.closest&&e.target.closest(".skill,.portrait");if(el&&!el.contains(e.relatedTarget))el.style.transform=""});
 var links={};document.querySelectorAll("nav a").forEach(function(a){links[a.getAttribute("href")]=a});
 var so=new IntersectionObserver(function(es){es.forEach(function(en){if(!en.isIntersecting)return;for(var k in links)links[k].classList.remove("active");var a=links["#"+en.target.id];if(a)a.classList.add("active")})},{rootMargin:"-45% 0px -50% 0px"});
-["about","works","contact"].forEach(function(id){so.observe(document.getElementById(id))});
+["hero","about","works"].forEach(function(id){so.observe(document.getElementById(id))});
 var tt=document.getElementById("totop"),ring=tt.querySelector("circle"),o1=document.getElementById("o1"),o2=document.getElementById("o2");
 function onS(){var h=document.documentElement,y=h.scrollTop,p=y/Math.max(1,h.scrollHeight-h.clientHeight);hd.classList.toggle("sc",y>40);tt.classList.toggle("on",y>600);ring.style.strokeDashoffset=131.9*(1-p);if(!reduce){o1.style.setProperty("--oy",(-y*.12)+"px");o2.style.setProperty("--oy",(y*.08)+"px")}}
 addEventListener("scroll",onS,{passive:true});onS();
@@ -312,6 +360,7 @@ document.getElementById("lbp").addEventListener("click",function(e){e.stopPropag
 document.getElementById("lbnx").addEventListener("click",function(e){e.stopPropagation();go(1)});
 addEventListener("keydown",function(e){if(!lb.classList.contains("on"))return;if(e.key=="ArrowLeft")go(-1);if(e.key=="ArrowRight")go(1)});
 var tx=0;lb.addEventListener("touchstart",function(e){tx=e.touches[0].clientX},{passive:true});lb.addEventListener("touchend",function(e){var d=e.changedTouches[0].clientX-tx;if(Math.abs(d)>50)go(d<0?1:-1)},{passive:true});
+
 </script>
 </body>
 </html>
