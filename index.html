@@ -83,6 +83,8 @@ footer{padding:28px 0 40px;text-align:center;color:var(--muted);font-size:13px}
 .cd span{font-size:13px;color:var(--muted)}.cd a{font-weight:700;font-size:17px;word-break:break-all}.cd a:hover{color:var(--p3)}
 .cd button{align-self:flex-start;margin-top:8px;cursor:pointer;font:500 13px Manrope,sans-serif;color:var(--p3);background:transparent;border:1px solid var(--line);border-radius:999px;padding:5px 14px}
 .cd button:hover{border-color:var(--p2)}
+.cd a.mbtn{align-self:flex-start;margin-top:12px;display:inline-flex;gap:6px;align-items:center;font:600 13px Manrope,sans-serif;color:#fff;background:var(--p1);border-radius:999px;padding:8px 18px;word-break:normal;transition:transform .2s,box-shadow .2s}
+.cd a.mbtn:hover{color:#fff;transform:translateY(-2px);box-shadow:0 8px 22px rgba(124,58,237,.45)}.cd a.mbtn span{transition:transform .2s;color:#fff;font-size:14px}.cd a.mbtn:hover span{transform:translateX(3px)}
 .mq{overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
 .mt{display:flex;gap:16px;width:max-content;animation:mq 62s linear infinite}.mq:hover .mt{animation-play-state:paused}
 @keyframes mq{to{transform:translateX(-50%)}}
@@ -238,7 +240,7 @@ header .wrap{transition:height .25s}header.sc .wrap{height:52px}header.sc{box-sh
 <section id="contact"><div class="wrap"><div class="contact"><div class="stage cstage" id="cstage" aria-hidden="true"></div>
 <h2>Contact us</h2>
 <p>Tell me what you need, and I'll get back to you as soon as possible.</p>
-<div class="cc"><div class="cd"><span>Phone / WhatsApp</span><a href="tel:+62895340911029">+62-895-3409-11029</a><button data-copy="+62895340911029">Copy number</button></div><div class="cd"><span>Gmail</span><a href="mailto:mr.andikaws@gmail.com">mr.andikaws@gmail.com</a><button data-copy="mr.andikaws@gmail.com">Copy email</button></div></div>
+<div class="cc"><div class="cd"><span>Phone / WhatsApp</span><a href="https://wa.me/62895340911029" target="_blank" rel="noopener">+62-895-3409-11029</a><a class="mbtn" href="https://wa.me/62895340911029" target="_blank" rel="noopener">Send a Message <span aria-hidden="true">&rarr;</span></a></div><div class="cd"><span>Gmail</span><a href="mailto:mr.andikaws@gmail.com">mr.andikaws@gmail.com</a><a class="mbtn" href="mailto:mr.andikaws@gmail.com">Send a Message <span aria-hidden="true">&rarr;</span></a></div></div>
 </div></div></section>
 <section id="partner" style="padding-top:24px"><div class="wrap"><h2>Partnership</h2><p class="lead">Brands and clients I've worked with.</p></div><div class="mq"><div class="mt" id="mt"></div></div></section>
 </main>
@@ -383,8 +385,9 @@ var ph=(CFG.partners.length?CFG.partners:P.map(function(n){return{name:n}})).map
 document.getElementById("mt").innerHTML=ph+ph+ph+ph+ph+ph;
 if(CFG.profile||window.__P){var pp=document.getElementById("portrait");pp.style.padding=0;pp.style.overflow="hidden";pp.innerHTML='<img src="'+(CFG.profile||window.__P)+'" alt="Anjaya" onerror="this.onerror=null;if(window.__P)this.src=window.__P" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 28%">'}
 var cds=document.querySelectorAll(".cd");
-cds[0].querySelector("a").href="tel:"+CFG.phone;cds[0].querySelector("a").textContent=CFG.phoneShow;cds[0].querySelector("button").dataset.copy=CFG.phone;
-cds[1].querySelector("a").href="mailto:"+CFG.email;cds[1].querySelector("a").textContent=CFG.email;cds[1].querySelector("button").dataset.copy=CFG.email;
+var waHref="https://wa.me/"+CFG.phone.replace(/\D/g,"")+"?text="+encodeURIComponent("Halo Anjaya, saya tertarik untuk bekerja sama.");
+cds[0].querySelectorAll("a").forEach(function(a){a.href=waHref;a.target="_blank";a.rel="noopener"});cds[0].querySelector("a").textContent=CFG.phoneShow;
+cds[1].querySelectorAll("a").forEach(function(a){a.href="mailto:"+CFG.email;a.addEventListener("click",function(e){if(matchMedia("(hover:hover) and (pointer:fine)").matches){e.preventDefault();window.open("https://mail.google.com/mail/?view=cm&fs=1&to="+encodeURIComponent(CFG.email),"_blank","noopener")}})});cds[1].querySelector("a").textContent=CFG.email;
 if(CFG.videos.length)document.getElementById("vids").innerHTML=CFG.videos.map(function(v){var m=v.src.match(/(?:youtu\.be\/|v=|embed\/|shorts\/)([\w-]{11})/),ar=v.vertical?"9/16":"16/9",mx=v.vertical?"height:500px;width:auto;max-width:100%;margin:0 auto;":"",
  md=m?'<iframe src="https://www.youtube.com/embed/'+m[1]+'" style="width:100%;aspect-ratio:'+ar+';'+mx+'border:0;display:block" allowfullscreen loading="lazy"></iframe>':'<video controls preload="metadata" playsinline'+(v.poster?' poster="'+v.poster+'"':'')+' src="'+v.src+'" style="width:100%;aspect-ratio:'+ar+';'+mx+'object-fit:contain;background:#000;display:block"></video>';
  return '<div class="vid">'+md+'<div class="t">'+(v.title||"")+'<small>'+(v.sub||"")+'</small></div></div>'}).join("");
