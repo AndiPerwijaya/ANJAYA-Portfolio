@@ -16,7 +16,7 @@ body{margin:0;background:var(--bg);color:var(--text);font:400 16px/1.7 Manrope,s
 a{color:inherit;text-decoration:none}
 :focus-visible{outline:2px solid var(--p2);outline-offset:3px}
 .wrap{max-width:1160px;margin:0 auto;padding:0 22px}
-header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(10,7,16,.82);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(10,7,16,.82);backdrop-filter:blur(12px)}
 header .wrap{display:flex;justify-content:space-between;align-items:center;height:60px}
 .logo{font-family:Fraunces,serif;font-weight:600;letter-spacing:.14em}
 nav{display:flex;gap:26px;font-size:16px;color:var(--muted)}
@@ -29,7 +29,7 @@ nav a:hover{color:var(--p3)}
 .btn{padding:12px 24px;border-radius:999px;border:1px solid var(--p1);font-weight:700;font-size:15px}
 .btn.fill{background:var(--p1)}
 .btn:hover{background:var(--p2);color:#10091f;border-color:var(--p2)}
-section{padding:72px 0;border-top:1px solid var(--line)}
+section{padding:72px 0}
 h2{font-family:Fraunces,serif;font-weight:400;font-size:clamp(30px,5vw,46px);line-height:1.15;margin:0 0 14px}
 .lead{color:var(--muted);max-width:640px;margin:0 0 34px}
 .about{display:grid;grid-template-columns:300px 1fr;gap:48px;align-items:stretch}.about .portrait{aspect-ratio:auto;min-height:260px;position:relative}.about .stats{margin:26px 0 0}
@@ -127,7 +127,7 @@ header .wrap{transition:height .25s}header.sc .wrap{height:52px}header.sc{box-sh
 
 .xh{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:28px}
 .xcat{display:flex;gap:10px;font-size:14px;color:var(--muted)}.xcat i{font-style:normal;opacity:.6}.xcat a:hover{color:var(--p3)}
-.xgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.xgrid{display:grid;grid-template-columns:repeat(6,1fr);gap:16px}.xgrid .xc{grid-column:span 2}.xgrid .xc:nth-child(n+4){grid-column:span 3}
 .xc{display:flex;gap:18px;align-items:flex-start;padding:22px;background:linear-gradient(160deg,rgba(32,22,52,.7),rgba(15,10,26,.7))}
 .ic{flex:none;width:48px;height:48px;border-radius:50%;border:1px solid var(--p1);background:rgba(124,58,237,.12);box-shadow:0 0 16px rgba(124,58,237,.3);display:grid;place-items:center}
 .ic svg{width:22px;height:22px;fill:none;stroke:var(--p2);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
@@ -140,8 +140,8 @@ header .wrap{transition:height .25s}header.sc .wrap{height:52px}header.sc{box-sh
 .step{position:relative;display:flex;flex-direction:column;gap:2px;font-size:13px;color:var(--muted);line-height:1.5}
 .step:not(:last-child)::after{content:"";position:absolute;top:24px;left:58px;right:-2px;height:1px;background:var(--line)}
 .step .ic{margin-bottom:10px}.step small{color:var(--p2);font-size:12px}.step b{color:var(--text);font-size:15px}
-@media (max-width:980px){.xgrid{grid-template-columns:repeat(2,1fr)}}
-@media (max-width:640px){.xgrid{grid-template-columns:1fr}.xcat{display:none}
+@media (max-width:980px){.xgrid{grid-template-columns:repeat(2,1fr)}.xgrid .xc,.xgrid .xc:nth-child(n+4){grid-column:span 1}.xgrid .xc:last-child{grid-column:span 2}}
+@media (max-width:640px){.xgrid{grid-template-columns:1fr}.xgrid .xc:last-child{grid-column:auto}.xcat{display:none}
 .steps{grid-template-columns:1fr;gap:20px}.step{display:grid;grid-template-columns:48px 1fr;column-gap:16px}.step .ic{grid-row:1/4;margin:0}.step:not(:last-child)::after{top:56px;left:24px;right:auto;width:1px;height:calc(100% - 36px)}.step small{align-self:end}
 }
 
@@ -150,7 +150,87 @@ header .wrap{transition:height .25s}header.sc .wrap{height:52px}header.sc{box-sh
 @media (hover:none){.tile figcaption{display:none}}
 .tile img.ph{width:100%;height:auto;min-height:0}
 .lb div{max-width:min(1000px,100%)}.lb img,.lb svg{width:auto;max-width:100%;max-height:78vh;margin:0 auto;display:block;background:var(--surface)}.lb svg{width:100%}
+
+/* ===== v3: skill picker, load more, elegance ===== */
+section{position:relative}
+.eyebrow:not(.hk){display:flex;align-items:center;gap:10px}.eyebrow:not(.hk)::before{content:"";width:26px;height:1px;background:var(--p2);opacity:.8}
+.pick{position:relative;display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:30px;font-size:13.5px;color:var(--muted)}
+.pick span{margin-right:6px}.pick button{cursor:pointer;font:500 13px Manrope,sans-serif;color:var(--text);background:rgba(124,58,237,.1);border:1px solid var(--line);border-radius:999px;padding:7px 15px;transition:border-color .2s,background .2s,transform .2s,box-shadow .2s}
+.pick button:hover{border-color:var(--p2);background:rgba(124,58,237,.25);transform:translateY(-2px);box-shadow:0 6px 18px rgba(124,58,237,.3)}
+.xc[data-pick]{cursor:pointer;position:relative}.xc .go{display:inline-flex;gap:6px;align-items:center;margin-top:14px;font:600 13px Manrope,sans-serif;color:var(--p3);opacity:.75;transition:opacity .25s,gap .25s}.xc .go i{font-style:normal;transition:transform .25s}
+.xc:hover .go,.xc:focus-visible .go{opacity:1}.xc:hover .go i{transform:translateX(4px)}.xc:focus-visible{outline:2px solid var(--p2);outline-offset:3px}
+.xcat a{cursor:pointer}
+html.js .hero .hk,html.js .hero h1,html.js .hero p,html.js .hero .btns,html.js .hero .pick{opacity:0;animation:hup .95s cubic-bezier(.2,.7,.2,1) both}
+html.js .hero .hk{animation-delay:.1s}html.js .hero h1{animation-name:hh;animation-delay:.25s;animation-duration:1.2s}html.js .hero p{animation-delay:.55s}html.js .hero .btns{animation-delay:.7s}html.js .hero .pick{animation-delay:.85s}
+@keyframes hup{from{opacity:0;transform:translateY(22px);filter:blur(6px)}to{opacity:1;transform:none;filter:none}}
+@keyframes hh{from{opacity:0;transform:translateY(34px);letter-spacing:.12em;filter:blur(10px)}to{opacity:1;transform:none;letter-spacing:.02em;filter:none}}
+html.js .step:not(:last-child)::after{transform:scaleX(0);transform-origin:left;transition:transform .8s cubic-bezier(.2,.7,.2,1) calc(var(--i,0)*.25s + .2s)}
+html.js .steps.drawn .step:not(:last-child)::after{transform:scaleX(1)}
+@media (max-width:640px){html.js .steps.drawn .step:not(:last-child)::after{transform:none}html.js .step:not(:last-child)::after{transform-origin:top}.grid,.gcol{gap:10px}}
+@media (prefers-reduced-motion:reduce){html.js .hero .hk,html.js .hero h1,html.js .hero p,html.js .hero .btns,html.js .hero .pick{animation:none;opacity:1}html.js .step:not(:last-child)::after{transform:none;transition:none}.tile.pop{animation:none}}
+
+/* ===== v4: gelombang, kartu works, pop-up ===== */
+:root{--wv:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='14' viewBox='0 0 200 14'%3E%3Cpath d='M0 7C25 0 75 0 100 7S175 14 200 7' fill='none' stroke='%23a78bfa' stroke-width='1.3' stroke-linecap='round'/%3E%3C/svg%3E");--wv2:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='14' viewBox='0 0 320 14'%3E%3Cpath d='M0 7C40 12 120 12 160 7S280 2 320 7' fill='none' stroke='%237c3aed' stroke-width='1' stroke-linecap='round'/%3E%3C/svg%3E")}
+section,header{position:relative}
+section::before,section::after,header::after{content:"";position:absolute;left:0;right:0;height:14px;pointer-events:none;-webkit-mask-image:linear-gradient(90deg,transparent,#000 14%,#000 86%,transparent);mask-image:linear-gradient(90deg,transparent,#000 14%,#000 86%,transparent)}
+section::before,header::after{top:-7px;background:var(--wv) repeat-x 0 0/200px 14px;opacity:.75;animation:wvA 14s linear infinite}
+header::after{top:auto;bottom:-7px}
+section::after{top:-7px;background:var(--wv2) repeat-x 0 0/320px 14px;opacity:.5;animation:wvB 22s linear infinite reverse}
+@keyframes wvA{to{background-position-x:200px}}@keyframes wvB{to{background-position-x:320px}}
+.eyebrow:not(.hk)::before{height:8px;width:30px;background:var(--wv) repeat-x 0 0/30px 8px;opacity:.9;animation:wvS 4s linear infinite}
+@keyframes wvS{to{background-position-x:30px}}
+html.js .step:not(:last-child)::after{height:10px;top:19px;background:var(--wv) repeat-x 0 0/40px 10px;animation:wvS2 5s linear infinite}
+@keyframes wvS2{to{background-position-x:40px}}
+.wcards{display:grid;grid-template-columns:repeat(6,1fr);gap:18px}
+.wcard{grid-column:span 2;position:relative;aspect-ratio:4/3;border-radius:20px;overflow:hidden;border:1px solid var(--line);background:var(--surface);cursor:pointer;padding:0;text-align:left;color:var(--text);font-family:inherit;transition:transform .45s cubic-bezier(.2,.7,.2,1),border-color .3s,box-shadow .4s}
+.wcard:nth-child(n+4){grid-column:span 3;aspect-ratio:16/9}
+.wcard img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 30%;filter:brightness(.72) saturate(.95);transition:transform .9s cubic-bezier(.2,.7,.2,1),filter .4s}
+.wcard::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,7,16,0) 30%,rgba(10,7,16,.92));pointer-events:none}
+.wcard:hover,.wcard:focus-visible{transform:translateY(-6px);border-color:var(--p2);box-shadow:0 22px 50px rgba(124,58,237,.35)}
+.wcard:hover img{transform:scale(1.07);filter:brightness(.95)}
+.wcard:focus-visible{outline:2px solid var(--p2);outline-offset:3px}
+.wno{position:absolute;top:16px;left:18px;z-index:1;font:600 13px Manrope,sans-serif;letter-spacing:.14em;color:var(--p3);background:rgba(10,7,16,.55);backdrop-filter:blur(6px);border:1px solid var(--line);border-radius:999px;padding:5px 12px}
+.wbd{position:absolute;left:22px;right:22px;bottom:20px;z-index:1;display:flex;flex-direction:column;gap:4px}
+.wtt{font:600 clamp(20px,2.2vw,28px)/1.15 Fraunces,serif}.wct{font-size:13.5px;color:var(--p3)}
+.wgo{display:inline-flex;gap:6px;margin-top:8px;font:600 13px Manrope,sans-serif;color:#fff;opacity:0;transform:translateY(8px);transition:opacity .3s,transform .3s}.wgo i{font-style:normal;transition:transform .25s}
+.wcard:hover .wgo,.wcard:focus-visible .wgo{opacity:1;transform:none}.wcard:hover .wgo i{transform:translateX(4px)}
+@media (hover:none){.wgo{opacity:.9;transform:none}}
+.wcard.hl{animation:hl 1.6s ease 2}@keyframes hl{50%{border-color:var(--p2);box-shadow:0 0 0 2px var(--p2),0 0 40px rgba(167,139,250,.6)}}
+html.noscroll{overflow:hidden}
+.wm{position:fixed;inset:0;z-index:55;display:none;place-items:center;padding:24px;background:rgba(5,3,10,.8);backdrop-filter:blur(10px)}.wm.on{display:grid;animation:wfade .3s ease}
+@keyframes wfade{from{opacity:0}}@keyframes wpin{from{opacity:0;transform:translateY(30px) scale(.96)}}
+.wmp{position:relative;width:min(1120px,100%);max-height:90vh;display:flex;border:1px solid var(--line);border-radius:24px;background:linear-gradient(160deg,#1a1230,#0d0818 60%);box-shadow:0 40px 100px rgba(0,0,0,.6),0 0 60px rgba(124,58,237,.18);animation:wpin .5s cubic-bezier(.2,.7,.2,1)}
+.wmb{flex:1;overflow-y:auto;padding:36px;border-radius:24px;overscroll-behavior:contain}
+.wmx{position:absolute;top:14px;right:16px;z-index:3;width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:rgba(21,16,31,.9);color:var(--text);font-size:26px;line-height:1;cursor:pointer;transition:border-color .2s,transform .2s}.wmx:hover{border-color:var(--p2);transform:rotate(90deg)}
+.wmh{margin-bottom:26px;padding-right:48px}.wmh h3{margin:0 0 10px;font:600 clamp(28px,4vw,42px)/1.1 Fraunces,serif}.wmh p{margin:0 0 14px;max-width:640px;color:var(--muted);line-height:1.7}
+.wmc{display:inline-block;font:600 12.5px Manrope,sans-serif;color:var(--p3);border:1px solid var(--p1);background:rgba(124,58,237,.12);box-shadow:0 0 14px rgba(124,58,237,.3);border-radius:999px;padding:5px 14px}
+.wm .grid{columns:auto;display:flex;gap:14px;align-items:flex-start}.gcol{flex:1;min-width:0;display:flex;flex-direction:column;gap:14px}.tile{margin:0}
+.tile .ph{transition:transform .7s cubic-bezier(.2,.7,.2,1),filter .3s}.tile:hover .ph{transform:scale(1.06);filter:brightness(1.1)}
+.tile figcaption{transform:translateY(10px);transition:opacity .3s,transform .3s}.tile:hover figcaption{transform:none}
+@keyframes pop{from{opacity:0;transform:translateY(22px) scale(.97)}to{opacity:1;transform:none}}
+.wm .tile{animation:pop .6s cubic-bezier(.2,.7,.2,1) both}
+@media (max-width:980px){.wcards{grid-template-columns:repeat(2,1fr)}.wcard,.wcard:nth-child(n+4){grid-column:span 1;aspect-ratio:4/3}.wcard:last-child{grid-column:span 2}}
+@media (max-width:560px){.wcards{grid-template-columns:1fr}.wcard:last-child{grid-column:auto}.wm{padding:10px}.wmb{padding:22px 16px}.wm .grid,.gcol{gap:10px}}
+@media (prefers-reduced-motion:reduce){section::before,section::after,header::after,.eyebrow::before,html.js .step::after{animation:none!important}.wm .tile,.wmp{animation:none}}
+
+/* ===== v5: header bulat di tengah, thumbnail blur ===== */
+header{height:0;background:transparent;backdrop-filter:none;pointer-events:none}
+header::after{display:none}
+header .wrap{pointer-events:auto;width:fit-content;max-width:calc(100% - 20px);margin:12px auto 0;height:54px;padding:0 8px 0 26px;gap:12px;justify-content:center;border-radius:999px;background:rgba(21,16,31,.72);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);border:1px solid var(--line);box-shadow:0 10px 34px rgba(0,0,0,.35),0 0 0 1px rgba(124,58,237,.08)}
+header.sc{box-shadow:none}header.sc .wrap{height:48px;background:rgba(15,10,26,.88)}
+.logo::after{content:"";display:inline-block;width:1px;height:18px;margin-left:16px;vertical-align:middle;background:var(--line)}
+nav{gap:2px;font-size:15px}
+nav a{padding:8px 16px;border-radius:999px;transition:color .2s,background .25s,box-shadow .25s}
+nav a::after{display:none}
+nav a:hover{color:var(--p3);background:rgba(124,58,237,.14)}
+nav a.active{color:#fff;background:rgba(124,58,237,.38);box-shadow:0 0 18px rgba(124,58,237,.4)}
+@media (max-width:520px){header .wrap{padding:0 5px 0 16px;gap:6px;height:48px}.logo{font-size:12.5px;letter-spacing:.08em}.logo::after{margin-left:10px;height:15px}nav{font-size:13px;gap:0}nav a{padding:7px 9px}}
+.wcard img{filter:blur(7px) brightness(.62) saturate(.95);transform:scale(1.14)}
+.wcard:hover img{transform:scale(1.22);filter:blur(7px) brightness(.78) saturate(1)}
+.wcard::after{background:linear-gradient(180deg,rgba(10,7,16,.1) 0%,rgba(10,7,16,.35) 45%,rgba(10,7,16,.85))}
+.wtt{text-shadow:0 2px 18px rgba(0,0,0,.65)}
 </style>
+<script>document.documentElement.classList.add("js")</script>
 </head>
 <body>
 <div class="bar" id="bar"></div><div class="glow" id="glow"></div><div class="orb" id="o1"></div><div class="orb" id="o2"></div>
@@ -163,6 +243,7 @@ header .wrap{transition:height .25s}header.sc .wrap{height:52px}header.sc{box-sh
 <h1>ANJAYA</h1>
 <p>Graphic designer, 3D modeler, video editor, and e-commerce brand manager. From visuals to warehouse stock, I handle it all.</p>
 <div class="btns"><a class="btn fill" href="#works">View Works <span aria-hidden="true">&rarr;</span></a><a class="btn glowb" href="#about">About Me</a></div>
+<div class="pick"><span>I'm looking for</span><button data-pick="Graphic Design">Graphic Design</button><button data-pick="3D Modeling">3D Modeling</button><button data-pick="3D Printing Asset">3D Printing Asset</button><button data-pick="video">Video Editing</button><button data-pick="Onlineshop Campaign">E-commerce &amp; Brand</button></div>
 
 </div></div>
 
@@ -170,7 +251,7 @@ header .wrap{transition:height .25s}header.sc .wrap{height:52px}header.sc{box-sh
 <div class="about">
 <div class="portrait" id="portrait">Add your profile photo here</div>
 <div>
-<div class="eyebrow">01 / About</div>
+<div class="eyebrow">About</div>
 <h2>Hi, I'm Anjaya.</h2>
 <p class="lead" style="margin-bottom:0">I turn ideas into impactful visual experiences and meaningful digital solutions, combining creativity with strategic thinking to bring concepts to life. My approach bridges design and business, creating work that not only looks great but also delivers value, strengthens brand identity, and supports long-term growth.</p>
 <div class="stats">
@@ -184,21 +265,21 @@ header .wrap{transition:height .25s}header.sc .wrap{height:52px}header.sc{box-sh
 </div></section>
 
 <section id="expertise"><div class="wrap">
-<div class="xh"><div><div class="eyebrow">02 / Expertise &amp; Services</div><h2 style="margin:0">What I Do Best</h2></div>
-<div class="xcat"><a href="#works">Design</a><i>/</i><a href="#works">3D</a><i>/</i><a href="#video">Video</a><i>/</i><a href="#ops">E-commerce</a></div></div>
+<div class="xh"><div><div class="eyebrow">Expertise &amp; Services</div><h2 style="margin:0">Personal Skills</h2></div>
+<div class="xcat"><a href="#works" data-pick="Graphic Design">Design</a><i>/</i><a href="#works" data-pick="3D Modeling">3D</a><i>/</i><a href="#video" data-pick="video">Video</a><i>/</i><a href="#works" data-pick="Onlineshop Campaign">E-commerce</a></div></div>
 <div class="xgrid">
-<div class="skill xc"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 20l1-4L16 5l3 3L8 19l-4 1z"/><path d="M14 7l3 3"/></svg></div><div><h3>Graphic Design</h3><p>Product design, branding, campaign, packaging, and promotional materials.</p><div class="chips"><span class="chip">Branding</span><span class="chip">Packaging</span><span class="chip">Social Media</span><span class="chip">Campaign</span></div></div></div>
-<div class="skill xc"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 7.5L12 3l9 4.5v9L12 21l-9-4.5v-9z"/><path d="M3 7.5L12 12l9-4.5M12 12v9"/></svg></div><div><h3>3D Modeling</h3><p>Clean models for 3D printing and digital assets, built in Blender.</p><div class="chips"><span class="chip">Blender</span><span class="chip">3D Printing</span><span class="chip">Character</span><span class="chip">Architecture</span></div></div></div>
-<div class="skill xc"><div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M10 9.5v5l4.5-2.5z"/></svg></div><div><h3>Video Editing</h3><p>Short videos, product reels, and social media content.</p><div class="chips"><span class="chip">CapCut</span><span class="chip">Adobe Premiere</span></div></div></div>
-<div class="skill xc"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 9l1.5-5h13L20 9"/><path d="M4 9a2.5 2.5 0 005 0 2.5 2.5 0 006 0 2.5 2.5 0 005 0"/><path d="M5 12v8h14v-8"/><path d="M10 20v-5h4v5"/></svg></div><div><h3>E-commerce &amp; Brand</h3><p>Marketplace management, ads, and brand identity, backed by daily operations from catalog to stock.</p><div class="chips"><span class="chip">Shopee</span><span class="chip">TikTok Shop</span><span class="chip">Meta Ads</span><span class="chip">Stock Control</span></div></div></div>
+<div class="skill xc" data-pick="Graphic Design" tabindex="0" role="link"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 20l1-4L16 5l3 3L8 19l-4 1z"/><path d="M14 7l3 3"/></svg></div><div><h3>Graphic Design</h3><p>Product design, branding, campaign, packaging, and promotional materials.</p><div class="chips"><span class="chip">Branding</span><span class="chip">Packaging</span><span class="chip">Social Media</span><span class="chip">Campaign</span></div><span class="go">View Works <i>&rarr;</i></span></div></div>
+<div class="skill xc" data-pick="3D Modeling" tabindex="0" role="link"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 7.5L12 3l9 4.5v9L12 21l-9-4.5v-9z"/><path d="M3 7.5L12 12l9-4.5M12 12v9"/></svg></div><div><h3>3D Modeling</h3><p>Characters, props, and environments built in Blender.</p><div class="chips"><span class="chip">Blender</span><span class="chip">Character</span><span class="chip">Architecture</span></div><span class="go">View Works <i>&rarr;</i></span></div></div>
+<div class="skill xc" data-pick="3D Printing Asset" tabindex="0" role="link"><div class="ic"><svg viewBox="0 0 24 24"><path d="M5 20h14"/><path d="M7 20v-3h10v3"/><path d="M9 17V8l3-4 3 4v9"/><path d="M9 12h6"/></svg></div><div><h3>3D Printing Asset</h3><p>Printable models: charms, keychains, figurines, and functional parts.</p><div class="chips"><span class="chip">3D Printing</span><span class="chip">Figurine</span><span class="chip">Keychain</span></div><span class="go">View Works <i>&rarr;</i></span></div></div>
+<div class="skill xc" data-pick="video" tabindex="0" role="link"><div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M10 9.5v5l4.5-2.5z"/></svg></div><div><h3>Video Editing</h3><p>Short videos, product reels, and social media content.</p><div class="chips"><span class="chip">CapCut</span><span class="chip">Adobe Premiere</span></div><span class="go">View Works <i>&rarr;</i></span></div></div>
+<div class="skill xc" data-pick="Onlineshop Campaign" tabindex="0" role="link"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 9l1.5-5h13L20 9"/><path d="M4 9a2.5 2.5 0 005 0 2.5 2.5 0 006 0 2.5 2.5 0 005 0"/><path d="M5 12v8h14v-8"/><path d="M10 20v-5h4v5"/></svg></div><div><h3>E-commerce &amp; Brand</h3><p>Marketplace management, ads, and brand identity, backed by daily operations from catalog to stock.</p><div class="chips"><span class="chip">Shopee</span><span class="chip">TikTok Shop</span><span class="chip">Meta Ads</span><span class="chip">Stock Control</span></div><span class="go">View Works <i>&rarr;</i></span></div></div>
 </div>
 </div></section>
 
 <section id="works"><div class="wrap">
-<div class="wh"><div><div class="eyebrow">03 / Works</div><h2>Works</h2>
-<p class="lead">Pick a category to see my work and client projects.</p></div><div class="viewer" id="viewer" aria-hidden="true"><div class="vbox" id="vbox"></div><small>Drag to Rotate</small></div></div>
-<div class="tabs" role="tablist" id="tabs"></div>
-<div class="grid" id="grid"></div>
+<div class="wh"><div><div class="eyebrow">Portfolio</div><h2>Works</h2>
+<p class="lead">Pick a collection to open its projects.</p></div><div class="viewer" id="viewer" aria-hidden="true"><div class="vbox" id="vbox"></div><small>Drag to Rotate</small></div></div>
+<div class="wcards" id="wcards"></div>
 </div></section>
 
 <section id="video"><div class="wrap">
@@ -222,7 +303,7 @@ header .wrap{transition:height .25s}header.sc .wrap{height:52px}header.sc{box-sh
 </div></section>
 
 <section id="process"><div class="wrap"><div class="pt">
-<div class="pl1"><div class="eyebrow">04 / My Process</div><h2>How I Work</h2><p class="lead" style="margin-bottom:28px">A simple and effective process to get the best result.</p>
+<div class="pl1"><div class="eyebrow">My Process</div><h2>How I Work</h2><p class="lead" style="margin-bottom:28px">A simple and effective process to get the best result.</p>
 <div class="steps">
 <div class="step"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4V5z"/></svg></div><small>01</small><b>Brief</b><span>Understand the needs and goals.</span></div>
 <div class="step"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5"/></svg></div><small>02</small><b>Research</b><span>Explore, analyze, and gather references.</span></div>
@@ -239,6 +320,7 @@ header .wrap{transition:height .25s}header.sc .wrap{height:52px}header.sc{box-sh
 </div></div></section>
 <section id="partner" style="padding-top:24px"><div class="wrap"><h2>Partnership</h2><p class="lead">Clients I've worked with.</p></div><div class="mq"><div class="mt" id="mt"></div></div></section>
 </main>
+<div class="wm" id="wm" role="dialog" aria-modal="true" aria-labelledby="wmt"><div class="wmp"><button class="wmx" type="button" aria-label="Close">&times;</button><div class="wmb"><div class="wmh"><div class="eyebrow" id="wmn"></div><h3 id="wmt"></h3><p id="wmd"></p><span class="wmc" id="wmc"></span></div><div class="grid" id="wmg"></div></div></div></div>
 <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Work preview"><button aria-label="Close" id="lbx">&times;</button><button class="lbn l" id="lbp" aria-label="Previous">&lsaquo;</button><button class="lbn r" id="lbnx" aria-label="Next">&rsaquo;</button><div id="lbc"></div></div>
 <button class="top" id="totop" aria-label="Back to top"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="21"/></svg><b>&uarr;</b></button>
 <div class="toast" id="toast" role="status"></div>
@@ -249,75 +331,118 @@ header .wrap{transition:height .25s}header.sc .wrap{height:52px}header.sc{box-sh
 var CFG={
  phone:"+62895340911029", phoneShow:"+62-895-3409-11029", email:"mr.andikaws@gmail.com",
  profile:"profil.jpg?v=2", // jalur foto profil (file ada di folder yang sama dengan index.html)
- works:[ // [kategori, judul, keterangan, foto, lebar, tinggi]. Kategori: "Graphic Design" / "3D Modeling" / "Brand & E-commerce"
-  ["Graphic Design", "Marketplace Decoration", "Citra SR12", "images/graphic-design-01.webp", 1080, 1350],
-  ["3D Modeling", "3D Model", "Blender", "images/3d-modeling-01.webp", 1339, 599],
-  ["Brand & E-commerce", "Store Layout", "Marketplace", "images/brand-ecommerce-01.webp", 1400, 990],
-  ["Graphic Design", "Marketplace Decoration", "Citra SR12", "images/graphic-design-02.webp", 1080, 1350],
-  ["3D Modeling", "3D Model", "Blender", "images/3d-modeling-02.webp", 414, 440],
-  ["Brand & E-commerce", "Store Layout", "Marketplace", "images/brand-ecommerce-02.webp", 1400, 990],
-  ["Graphic Design", "Marketplace Decoration", "Citra SR12", "images/graphic-design-03.webp", 1020, 1020],
-  ["3D Modeling", "3D Model", "Blender", "images/3d-modeling-03.webp", 1400, 672],
-  ["Brand & E-commerce", "Marketplace Decoration", "Citra SR12", "images/brand-ecommerce-03.webp", 1080, 1350],
-  ["Graphic Design", "Marketplace Decoration", "Citra SR12", "images/graphic-design-04.webp", 1020, 1020],
-  ["3D Modeling", "3D Model", "Blender", "images/3d-modeling-04.webp", 1400, 703],
-  ["Brand & E-commerce", "Marketplace Decoration", "Citra SR12", "images/brand-ecommerce-04.webp", 1080, 1350],
-  ["Graphic Design", "Marketplace Decoration", "Citra SR12", "images/graphic-design-05.webp", 1020, 1020],
-  ["3D Modeling", "3D Model", "Blender", "images/3d-modeling-05.webp", 1400, 622],
-  ["Brand & E-commerce", "Marketplace Decoration", "Citra SR12", "images/brand-ecommerce-05.webp", 1020, 1020],
-  ["Graphic Design", "Store Decoration", "Marketplace", "images/graphic-design-06.webp", 1400, 921],
-  ["3D Modeling", "3D Model", "Blender", "images/3d-modeling-06.webp", 1400, 663],
-  ["Brand & E-commerce", "Marketplace Decoration", "Citra SR12", "images/brand-ecommerce-06.webp", 720, 480],
-  ["Graphic Design", "Store Decoration", "Marketplace", "images/graphic-design-07.webp", 1400, 921],
-  ["3D Modeling", "3D Model", "Blender", "images/3d-modeling-07.webp", 1400, 648],
-  ["Brand & E-commerce", "Store Decoration", "Marketplace", "images/brand-ecommerce-07.webp", 640, 640],
-  ["Graphic Design", "Meta Ads Feed", "Meta Ads", "images/graphic-design-08.webp", 1080, 1350],
-  ["3D Modeling", "3D Model", "Blender", "images/3d-modeling-08.webp", 1400, 715],
-  ["Brand & E-commerce", "Store Decoration", "Marketplace", "images/brand-ecommerce-08.webp", 1400, 921],
-  ["Graphic Design", "Meta Ads Feed", "Meta Ads", "images/graphic-design-09.webp", 1080, 1350],
-  ["3D Modeling", "3D Model", "Blender", "images/3d-modeling-09.webp", 1400, 839],
-  ["Brand & E-commerce", "Store Decoration", "Marketplace", "images/brand-ecommerce-09.webp", 640, 640],
-  ["Graphic Design", "Social Media Post", "Citra SR12", "images/graphic-design-10.webp", 1400, 1400],
-  ["3D Modeling", "3D Model", "Blender", "images/3d-modeling-10.webp", 817, 395],
-  ["Brand & E-commerce", "Product Design", "Marketplace", "images/brand-ecommerce-10.webp", 1080, 1080],
-  ["Graphic Design", "Social Media Post", "Citra SR12", "images/graphic-design-11.webp", 1000, 1000],
-  ["3D Modeling", "3D Model", "Blender", "images/3d-modeling-11.webp", 1400, 602],
-  ["Brand & E-commerce", "Product Design", "Marketplace", "images/brand-ecommerce-11.webp", 1080, 1080],
-  ["Graphic Design", "Social Media Post", "Citra SR12", "images/graphic-design-12.webp", 1400, 1400],
-  ["3D Modeling", "3D Model", "Blender", "images/3d-modeling-12.webp", 1166, 754],
-  ["Brand & E-commerce", "Product Design", "Marketplace", "images/brand-ecommerce-12.webp", 1080, 1080],
-  ["Graphic Design", "Promo Poster", "Campaign", "images/graphic-design-13.webp", 990, 1400],
-  ["3D Modeling", "3D Model", "Blender", "images/3d-modeling-13.webp", 1400, 684],
-  ["Brand & E-commerce", "Product Design", "Marketplace", "images/brand-ecommerce-13.webp", 1080, 1080],
-  ["3D Modeling", "3D Model", "Blender", "images/3d-modeling-14.webp", 488, 316],
-  ["Brand & E-commerce", "Ad Creative", "Meta Ads", "images/brand-ecommerce-14.webp", 1400, 1400],
-  ["3D Modeling", "3D Model", "Blender", "images/3d-modeling-15.webp", 1151, 567],
-  ["Brand & E-commerce", "Category Banner", "Marketplace", "images/brand-ecommerce-15.webp", 1400, 921],
-  ["3D Modeling", "3D Model", "Blender", "images/3d-modeling-16.webp", 923, 612],
-  ["Brand & E-commerce", "Product Visual", "Marketplace", "images/brand-ecommerce-16.webp", 1000, 1000],
-  ["3D Modeling", "3D Model", "Blender", "images/3d-modeling-17.webp", 503, 641],
-  ["Brand & E-commerce", "Product Banner", "Marketplace", "images/brand-ecommerce-17.webp", 1024, 1024],
-  ["3D Modeling", "3D Model", "Blender", "images/3d-modeling-18.webp", 868, 545],
-  ["Brand & E-commerce", "Product Banner", "Marketplace", "images/brand-ecommerce-18.webp", 1024, 1024],
-  ["3D Modeling", "3D Model", "Blender", "images/3d-modeling-19.webp", 1400, 720],
-  ["Brand & E-commerce", "Product Visual", "Marketplace", "images/brand-ecommerce-19.webp", 1024, 1024],
-  ["3D Modeling", "3D Model", "Blender", "images/3d-modeling-20.webp", 607, 567],
-  ["3D Modeling", "3D Model", "Blender", "images/3d-modeling-21.webp", 478, 650],
-  ["3D Modeling", "3D Model", "Blender", "images/3d-modeling-22.webp", 1400, 669],
-  ["3D Modeling", "3D Model", "Blender", "images/3d-modeling-23.webp", 717, 542],
-  ["3D Modeling", "3D Model", "Blender", "images/3d-modeling-24.webp", 407, 368],
-  ["3D Modeling", "3D Model", "Blender", "images/3d-modeling-25.webp", 648, 582],
-  ["3D Modeling", "3D Model", "Blender", "images/3d-modeling-26.webp", 1400, 703],
-  ["3D Modeling", "3D Model", "Blender", "images/3d-modeling-27.webp", 1400, 650],
-  ["3D Modeling", "3D Model", "Blender", "images/3d-modeling-28.webp", 918, 747],
-  ["3D Modeling", "3D Model", "Blender", "images/3d-modeling-29.webp", 1016, 650],
-  ["3D Modeling", "3D Model", "Blender", "images/3d-modeling-30.webp", 1140, 802],
-  ["3D Modeling", "3D Model", "Blender", "images/3d-modeling-31.webp", 1400, 826]
+ works:[ // 5 kategori = 5 kartu. cover = foto sampul kartu, items = [foto, lebar, tinggi] yang tampil di pop-up
+  {title:"3D Modeling",
+   desc:"Characters, props, and environments modeled in Blender, from anime-style hair and outfits to temples, ships, and small scenes.",
+   cover:"images/3d-modeling-13.webp",
+   items:[
+    ["images/3d-modeling-01.webp", 1433, 859],
+    ["images/3d-modeling-02.webp", 817, 395],
+    ["images/3d-modeling-03.webp", 1166, 754],
+    ["images/3d-modeling-04.webp", 488, 316],
+    ["images/3d-modeling-05.webp", 1151, 567],
+    ["images/3d-modeling-06.webp", 923, 612],
+    ["images/3d-modeling-07.webp", 503, 641],
+    ["images/3d-modeling-08.webp", 607, 567],
+    ["images/3d-modeling-09.webp", 1500, 717],
+    ["images/3d-modeling-10.webp", 1500, 754],
+    ["images/3d-modeling-11.webp", 1500, 697],
+    ["images/3d-modeling-12.webp", 918, 747],
+    ["images/3d-modeling-13.webp", 1016, 650],
+    ["images/3d-modeling-14.webp", 1140, 802],
+    ["images/3d-modeling-15.webp", 1500, 885],
+    ["images/3d-modeling-16.webp", 585, 625],
+    ["images/3d-modeling-17.webp", 677, 736],
+    ["images/3d-modeling-18.webp", 1500, 690],
+    ["images/3d-modeling-19.webp", 1500, 712]
+   ]},
+  {title:"3D Printing Asset",
+   desc:"Models prepared for 3D printing: character charms, keychains, figurines, and functional parts.",
+   cover:"images/3d-printing-asset-23.webp",
+   items:[
+    ["images/3d-printing-asset-01.webp", 1339, 599],
+    ["images/3d-printing-asset-02.webp", 1500, 720],
+    ["images/3d-printing-asset-03.webp", 1500, 754],
+    ["images/3d-printing-asset-04.webp", 1500, 666],
+    ["images/3d-printing-asset-05.webp", 1500, 694],
+    ["images/3d-printing-asset-06.webp", 1500, 766],
+    ["images/3d-printing-asset-07.webp", 1500, 645],
+    ["images/3d-printing-asset-08.webp", 868, 545],
+    ["images/3d-printing-asset-09.webp", 1465, 753],
+    ["images/3d-printing-asset-10.webp", 717, 542],
+    ["images/3d-printing-asset-11.webp", 407, 368],
+    ["images/3d-printing-asset-12.webp", 648, 582],
+    ["images/3d-printing-asset-13.webp", 567, 521],
+    ["images/3d-printing-asset-14.webp", 547, 572],
+    ["images/3d-printing-asset-15.webp", 691, 602],
+    ["images/3d-printing-asset-16.webp", 531, 507],
+    ["images/3d-printing-asset-17.webp", 770, 611],
+    ["images/3d-printing-asset-18.webp", 673, 575],
+    ["images/3d-printing-asset-19.webp", 665, 642],
+    ["images/3d-printing-asset-20.webp", 576, 552],
+    ["images/3d-printing-asset-21.webp", 673, 671],
+    ["images/3d-printing-asset-22.webp", 643, 547],
+    ["images/3d-printing-asset-23.webp", 605, 677],
+    ["images/3d-printing-asset-24.webp", 685, 670],
+    ["images/3d-printing-asset-25.webp", 827, 641],
+    ["images/3d-printing-asset-26.webp", 1500, 691],
+    ["images/3d-printing-asset-27.webp", 1375, 742],
+    ["images/3d-printing-asset-28.webp", 1500, 667],
+    ["images/3d-printing-asset-29.webp", 1500, 726]
+   ]},
+  {title:"Banner & Brosur",
+   desc:"Brochures, banners, and promotional layouts for partner recruitment and product campaigns.",
+   cover:"images/banner-brosur-03.webp",
+   items:[
+    ["images/banner-brosur-01.webp", 1500, 1061],
+    ["images/banner-brosur-02.webp", 1500, 1061],
+    ["images/banner-brosur-03.webp", 1060, 1500],
+    ["images/banner-brosur-04.webp", 563, 1500],
+    ["images/banner-brosur-05.webp", 562, 1500]
+   ]},
+  {title:"Onlineshop Campaign",
+   desc:"Marketplace banners and promo visuals for online stores: product packs, seasonal campaigns, and shipping promotions.",
+   cover:"images/onlineshop-campaign-06.webp",
+   items:[
+    ["images/onlineshop-campaign-01.webp", 1020, 1020],
+    ["images/onlineshop-campaign-02.webp", 720, 480],
+    ["images/onlineshop-campaign-03.webp", 1500, 987],
+    ["images/onlineshop-campaign-04.webp", 1500, 987],
+    ["images/onlineshop-campaign-05.webp", 640, 640],
+    ["images/onlineshop-campaign-06.webp", 1500, 987],
+    ["images/onlineshop-campaign-07.webp", 1080, 1080],
+    ["images/onlineshop-campaign-08.webp", 1080, 1080],
+    ["images/onlineshop-campaign-09.webp", 1080, 1080],
+    ["images/onlineshop-campaign-10.webp", 1080, 1080],
+    ["images/onlineshop-campaign-11.webp", 1500, 1500],
+    ["images/onlineshop-campaign-12.webp", 1500, 987],
+    ["images/onlineshop-campaign-13.webp", 1000, 1000],
+    ["images/onlineshop-campaign-14.webp", 1024, 1024],
+    ["images/onlineshop-campaign-15.webp", 1024, 1024]
+   ]},
+  {title:"Social Media Feed",
+   desc:"Feed and story designs for social media: product highlights, brand moods, and campaign posts.",
+   cover:"images/social-media-feed-02.webp",
+   items:[
+    ["images/social-media-feed-01.webp", 1080, 1350],
+    ["images/social-media-feed-02.webp", 1080, 1350],
+    ["images/social-media-feed-03.webp", 1080, 1350],
+    ["images/social-media-feed-04.webp", 1080, 1350],
+    ["images/social-media-feed-05.webp", 1020, 1020],
+    ["images/social-media-feed-06.webp", 1020, 1020],
+    ["images/social-media-feed-07.webp", 1020, 1020],
+    ["images/social-media-feed-08.webp", 1080, 1350],
+    ["images/social-media-feed-09.webp", 1080, 1350],
+    ["images/social-media-feed-10.webp", 1440, 1440],
+    ["images/social-media-feed-11.webp", 1000, 1000],
+    ["images/social-media-feed-12.webp", 1440, 1440],
+    ["images/social-media-feed-13.webp", 1024, 1024]
+   ]}
  ],
  videos:[
-  {title:"Short Video 1",sub:"YouTube Shorts",src:"https://www.youtube.com/shorts/C8LHAMIZUnU",vertical:true},
-  {title:"Short Video 2",sub:"YouTube Shorts",src:"https://www.youtube.com/shorts/wmU5UUAiAjA",vertical:true},
-  {title:"Short Video 3",sub:"YouTube Shorts",src:"https://www.youtube.com/shorts/0IabA-SLmiQ",vertical:true},
+  {title:"Tour Review",sub:"YouTube Shorts",src:"https://www.youtube.com/shorts/C8LHAMIZUnU",vertical:true},
+  {title:"Into The National Museum",sub:"YouTube Shorts",src:"https://www.youtube.com/shorts/wmU5UUAiAjA",vertical:true},
+  {title:"Proclamation Museum",sub:"YouTube Shorts",src:"https://www.youtube.com/shorts/0IabA-SLmiQ",vertical:true},
   // {title:"",sub:"",src:"videos/a.mp4 atau link YouTube",poster:"images/cover.jpg",vertical:false}
  ],
  partners:[
@@ -330,27 +455,28 @@ var CFG={
  ]
 };
 /* ====== selesai ====== */
-var CATS=["All","Graphic Design","3D Modeling","Brand & E-commerce"];
-var W=[
-["Graphic Design","Product Design","Packaging",270,1.2],["Graphic Design","Promo banner","Meta Ads",268,.7],["Graphic Design","Campaign visual","Campaign",285,.9],["Graphic Design","Product catalog","Illustrator",262,1.3],
-["3D Modeling","3D-printing model","Blender · Bambu Studio",280,1],["3D Modeling","Game asset","Blender",300,.8],["3D Modeling","House visualization","Blender",255,1.2],["3D Modeling","Living room interior","Blender",290,.75],
-["Brand & E-commerce","Sales dashboard","Omnichannel",265,.85],["Brand & E-commerce","Store product photos","Marketplace",275,1.25],["Brand & E-commerce","Stocktake report","Operations",258,.8],["Brand & E-commerce","Meta Ads results","Ad performance",295,1]
-];
-if(CFG.works.length)W=CFG.works.map(function(x){return[x[0],x[1],x[2],270,1,x[3],x[4],x[5]]});
-function tile(w,i){
- if(w[5])return '<figure class="tile" data-c="'+w[0]+'"><img class="ph" loading="lazy" decoding="async"'+(w[6]?' width="'+w[6]+'" height="'+w[7]+'"':'')+' src="'+w[5]+'" alt="'+w[1]+' – '+w[2]+'"><figcaption>'+w[1]+'<small>'+w[2]+'</small></figcaption></figure>';
- var h=w[3],r=w[4],H=Math.round(300*r),
- svg='<svg class="ph" viewBox="0 0 300 '+H+'" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder '+w[1]+'"><defs><linearGradient id="g'+i+'" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="hsl('+h+',70%,'+(22+i%3*6)+'%)"/><stop offset="1" stop-color="hsl('+(h+30)+',60%,7%)"/></linearGradient></defs><rect width="300" height="'+H+'" fill="url(#g'+i+')"/><circle cx="'+(60+i*37%190)+'" cy="'+(H*.35)+'" r="'+(40+i*9%40)+'" fill="hsl('+h+',80%,65%)" opacity=".22"/><rect x="'+(130+i*23%80)+'" y="'+(H*.5)+'" width="110" height="'+(H*.28)+'" rx="14" fill="#fff" opacity=".07"/></svg>';
- return '<figure class="tile" data-c="'+w[0]+'">'+svg+'<figcaption>'+w[1]+'<small>'+w[2]+'</small></figcaption></figure>';
-}
-var g=document.getElementById("grid"),t=document.getElementById("tabs");
-g.innerHTML=W.map(tile).join("");
-t.innerHTML=CATS.map(function(c,i){return '<button class="tab" role="tab" aria-selected="'+(i==0)+'" data-c="'+c+'">'+c+'</button>'}).join("");
-t.addEventListener("click",function(e){
- var b=e.target.closest(".tab");if(!b)return;
- t.querySelectorAll(".tab").forEach(function(x){x.setAttribute("aria-selected",x==b)});
- g.querySelectorAll(".tile").forEach(function(f){f.style.display=(b.dataset.c=="All"||f.dataset.c==b.dataset.c)?"":"none"});
-});
+var g=document.getElementById("wmg"),wc=document.getElementById("wcards"),wm=document.getElementById("wm"),MT=[],openC=null,lastF=null;
+function tileHTML(c,it,i,n){var no=(i+1<10?"0":"")+(i+1);return '<figure class="tile" tabindex="0"><img class="ph" loading="lazy" decoding="async" width="'+it[1]+'" height="'+it[2]+'" src="'+it[0]+'" alt="'+c.title+' '+no+'"><figcaption>'+c.title+'<small>No. '+no+' / '+n+'</small></figcaption></figure>'}
+var WK=CFG.works;
+wc.innerHTML=WK.map(function(c,i){var no=(i+1<10?"0":"")+(i+1);return '<button class="wcard" type="button" data-w="'+i+'" data-g="'+(i>1?"graphic":"3d")+'" aria-label="Open '+c.title+'"><img src="'+c.cover+'" alt="" loading="lazy"><span class="wno">'+no+'</span><span class="wbd"><span class="wtt">'+c.title+'</span><span class="wct">'+c.items.length+' Works</span><span class="wgo">Open Collection <i>&rarr;</i></span></span></button>'}).join("");
+function ncol(){return wm.querySelector(".wmp").clientWidth>760?3:2}
+function buildGrid(c){var n=ncol(),cs=[],hs=[];g.innerHTML="";MT=[];for(var i=0;i<n;i++){var d=document.createElement("div");d.className="gcol";g.appendChild(d);cs.push(d);hs.push(0)}
+ c.items.forEach(function(it,k){var h=document.createElement("div");h.innerHTML=tileHTML(c,it,k,c.items.length);var f=h.firstChild;f.style.animationDelay=Math.min(k,12)*45+"ms";var m=0;for(var j=1;j<n;j++)if(hs[j]<hs[m])m=j;cs[m].appendChild(f);hs[m]+=it[2]/it[1]+.04;MT.push(f)})}
+function openW(i,from){var c=WK[i];openC=i;lastF=from||null;var no=(i+1<10?"0":"")+(i+1);
+ document.getElementById("wmn").textContent=no+" / 0"+WK.length;document.getElementById("wmt").textContent=c.title;document.getElementById("wmd").textContent=c.desc;document.getElementById("wmc").textContent=c.items.length+" Works";
+ wm.classList.add("on");document.documentElement.classList.add("noscroll");wm.querySelector(".wmb").scrollTop=0;buildGrid(c);wm.querySelector(".wmx").focus()}
+function closeW(){wm.classList.remove("on");document.documentElement.classList.remove("noscroll");if(lastF)lastF.focus();openC=null}
+wc.addEventListener("click",function(e){var b=e.target.closest(".wcard");if(b)openW(+b.dataset.w,b)});
+wm.addEventListener("click",function(e){if(e.target==wm||e.target.closest(".wmx"))closeW()});
+addEventListener("keydown",function(e){if(e.key=="Escape"&&wm.classList.contains("on")&&!document.getElementById("lb").classList.contains("on"))closeW()},true);
+var rz;addEventListener("resize",function(){clearTimeout(rz);rz=setTimeout(function(){if(openC!==null&&wm.querySelector(".wmp").clientWidth>0){var n=ncol();if(g.children.length!=n)buildGrid(WK[openC])}},200)});
+function pick(c){if(c=="video"){document.getElementById("video").scrollIntoView({behavior:reduce?"auto":"smooth"});return}
+ var i=WK.map(function(x){return x.title}).indexOf(c);
+ if(i>-1){openW(i,wc.children[i]);return}
+ document.getElementById("works").scrollIntoView({behavior:reduce?"auto":"smooth"});
+ var gr=c=="Graphic Design"?"graphic":null;if(gr)[].forEach.call(wc.children,function(x){if(x.dataset.g==gr){x.classList.remove("hl");void x.offsetWidth;x.classList.add("hl")}})}
+document.addEventListener("click",function(e){var el=e.target.closest("[data-pick]");if(!el)return;if(el.tagName=="A")e.preventDefault();pick(el.dataset.pick)});
+document.addEventListener("keydown",function(e){if(e.key=="Enter"&&e.target.matches&&e.target.matches(".xc[data-pick]"))pick(e.target.dataset.pick)});
 var fine=matchMedia("(pointer:fine)").matches,reduce=matchMedia("(prefers-reduced-motion:reduce)").matches;
 var IC=['<path d="M3 4h2l2.4 11h10.2L20 7H6.2"/><circle cx="9" cy="20" r="1.4"/><circle cx="17" cy="20" r="1.4"/>','<path d="M5 8h14l-1 12H6L5 8z"/><path d="M9 8V6a3 3 0 016 0v2"/>','<path d="M3 7.5L12 3l9 4.5v9L12 21l-9-4.5v-9z"/><path d="M3 7.5L12 12l9-4.5M12 12v9"/>','<path d="M3 12V4h8l10 10-8 8L3 12z"/><circle cx="7.5" cy="8.5" r="1.3"/>','<path d="M12 20s-8-5-8-11a4.5 4.5 0 018-2.5A4.5 4.5 0 0120 9c0 6-8 11-8 11z"/>','<path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3z"/>'];
 var M=innerWidth<700,st=document.getElementById("stage"),S=M?44:innerWidth<1000?58:74;
@@ -369,7 +495,6 @@ var io=new IntersectionObserver(function(es){es.forEach(function(en){if(!en.isIn
 document.querySelectorAll(".stat b").forEach(function(b){io.observe(b)});
 g.addEventListener("pointermove",function(e){if(!fine||reduce)return;var f=e.target.closest(".tile");if(!f)return;var r=f.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;f.style.transform="perspective(700px) rotateY("+x*10+"deg) rotateX("+(-y*10)+"deg) scale(1.02)"});
 g.addEventListener("pointerout",function(e){var f=e.target.closest(".tile");if(f)f.style.transform=""});
-t.addEventListener("click",function(e){if(!e.target.closest(".tab"))return;g.querySelectorAll(".tile").forEach(function(f){f.classList.remove("pop");void f.offsetWidth;f.classList.add("pop")})});
 var lb=document.getElementById("lb"),lbc=document.getElementById("lbc");
 g.addEventListener("click",function(e){var f=e.target.closest(".tile");if(!f)return;lbc.innerHTML=(f.querySelector("img")||f.querySelector("svg")).outerHTML+"<p>"+f.querySelector("figcaption").innerHTML.replace("<small>","<br><small style='color:#c4b5fd'>")+"</p>";lb.classList.add("on")});
 function cl(){lb.classList.remove("on")}
@@ -399,7 +524,7 @@ cs.innerHTML=[[5,14,30],[88,12,-30],[8,68,-20],[87,68,40]].map(function(p,i){ret
 if(fine&&!reduce){ct.addEventListener("pointermove",function(e){var r=ct.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;cs.style.transform="rotateY("+x*18+"deg) rotateX("+(-y*14)+"deg)"});ct.addEventListener("pointerleave",function(){cs.style.transform=""})}
 if("IntersectionObserver" in window&&!reduce){
  var rv=new IntersectionObserver(function(es){es.forEach(function(en){if(!en.isIntersecting)return;var el=en.target;rv.unobserve(el);el.classList.add("in");setTimeout(function(){el.classList.remove("rv","in");el.style.transitionDelay=""},1400)})},{threshold:.12,rootMargin:"0px 0px -6% 0px"});
- document.querySelectorAll("h2,.lead,.eyebrow,.portrait,.stat,.skill,.vid,.cd,.tabs,.step").forEach(function(el){el.classList.add("rv");el.style.transitionDelay=([].indexOf.call(el.parentNode.children,el)%4*90)+"ms";rv.observe(el)});
+ document.querySelectorAll("h2,.lead,.eyebrow,.portrait,.stat,.skill,.vid,.cd,.wcard,.step").forEach(function(el){el.classList.add("rv");el.style.transitionDelay=([].indexOf.call(el.parentNode.children,el)%4*90)+"ms";rv.observe(el)});
 }
 document.querySelectorAll(".skill,.stat,.cd,.vid").forEach(function(el){el.classList.add("sp")});
 document.addEventListener("pointermove",function(e){if(!fine||!e.target.closest)return;var el=e.target.closest(".sp,.portrait");if(!el)return;var r=el.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top;el.style.setProperty("--mx",x+"px");el.style.setProperty("--my",y+"px");if(!reduce&&(el.classList.contains("skill")||el.classList.contains("portrait")))el.style.transform="perspective(800px) rotateY("+((x/r.width-.5)*8)+"deg) rotateX("+(-(y/r.height-.5)*8)+"deg) translateY(-3px)"});
@@ -423,12 +548,19 @@ vw.addEventListener("pointermove",function(e){if(!dr)return;var dx=e.clientX-lx,
 ["pointerup","pointercancel"].forEach(function(n){vw.addEventListener(n,function(){dr=false;vw.classList.remove("dr")})});
 /* lightbox: panah & geser */
 var cur=null;g.addEventListener("click",function(e){var f=e.target.closest(".tile");if(f)cur=f});
-function go(d){if(!cur)return;var v=[].filter.call(g.querySelectorAll(".tile"),function(x){return x.style.display!="none"});if(v.length<2)return;cur=v[(v.indexOf(cur)+d+v.length)%v.length];lbc.innerHTML=(cur.querySelector("img")||cur.querySelector("svg")).outerHTML+"<p>"+cur.querySelector("figcaption").innerHTML.replace("<small>","<br><small style='color:#c4b5fd'>")+"</p>"}
+function go(d){if(!cur)return;var v=MT;if(v.length<2)return;cur=v[(v.indexOf(cur)+d+v.length)%v.length];lbc.innerHTML=(cur.querySelector("img")||cur.querySelector("svg")).outerHTML+"<p>"+cur.querySelector("figcaption").innerHTML.replace("<small>","<br><small style='color:#c4b5fd'>")+"</p>"}
 document.getElementById("lbp").addEventListener("click",function(e){e.stopPropagation();go(-1)});
 document.getElementById("lbnx").addEventListener("click",function(e){e.stopPropagation();go(1)});
 addEventListener("keydown",function(e){if(!lb.classList.contains("on"))return;if(e.key=="ArrowLeft")go(-1);if(e.key=="ArrowRight")go(1)});
 var tx=0;lb.addEventListener("touchstart",function(e){tx=e.touches[0].clientX},{passive:true});lb.addEventListener("touchend",function(e){var d=e.changedTouches[0].clientX-tx;if(Math.abs(d)>50)go(d<0?1:-1)},{passive:true});
 
+
+/* ===== v3: animasi tambahan ===== */
+if("IntersectionObserver" in window){
+ var sw=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add("drawn");sw.unobserve(en.target)}})},{threshold:.05});
+ document.querySelectorAll("section,.steps").forEach(function(el){sw.observe(el)});
+}else document.querySelectorAll("section,.steps").forEach(function(el){el.classList.add("drawn")});
+document.querySelectorAll(".step").forEach(function(el,i){el.style.setProperty("--i",i)});
 </script>
 </body>
 </html>
